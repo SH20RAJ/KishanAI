@@ -1,7 +1,11 @@
 {
-	"name": "falling-glade-3bb8",
-	"version": "0.1.0",
+	"name": "kisanai",
+	"version": "1.0.0",
 	"private": true,
+	"description": "India's First AI-Powered Agricultural Assistant - Built for YUKTI AICTE Hackathon 2025",
+	"keywords": ["KisanAI", "agriculture", "AI", "farming", "crop-disease-detection", "chatbot", "YUKTI", "AICTE"],
+	"author": "KisanAI Team",
+	"license": "MIT",
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"build": "next build",

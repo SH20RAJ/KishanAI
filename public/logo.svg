@@ -1,0 +1,14 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="200" height="200" rx="40" fill="#16A34A"/>
+<g transform="translate(50, 50)">
+  <!-- Wheat/Grain icon -->
+  <path d="M50 20C50 20 30 25 30 50C30 75 50 100 50 100C50 100 70 75 70 50C70 25 50 20 50 20Z" fill="white"/>
+  <path d="M40 60L45 65L55 55" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="50" cy="50" r="6" fill="#16A34A"/>
+  
+  <!-- Leaf decoration -->
+  <path d="M25 35C25 35 15 30 15 40C15 50 25 55 25 55" fill="#BBF7D0"/>
+  <path d="M75 35C75 35 85 30 85 40C85 50 75 55 75 55" fill="#BBF7D0"/>
+</g>
+<text x="100" y="150" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">KisanAI</text>
+</svg>
