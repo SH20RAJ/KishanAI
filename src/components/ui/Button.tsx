@@ -7,11 +7,11 @@ interface BaseButtonProps {
   className?: string;
 }
 
-interface ButtonAsButton extends BaseButtonProps, React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonAsButton extends BaseButtonProps, Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'className'> {
   href?: never;
 }
 
-interface ButtonAsLink extends BaseButtonProps, React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface ButtonAsLink extends BaseButtonProps, Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'children' | 'className'> {
   href: string;
 }
 
