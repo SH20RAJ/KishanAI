@@ -2,6 +2,29 @@
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+      {/* Google Translate Script */}
+      <script 
+        type="text/javascript" 
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        async
+      ></script>
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'hi,bn,te,ta,ml,kn,gu,mr,pa,or,as,ur,ne,si,my',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                gaTrack: true,
+                gaId: 'UA-XXXXX-X'
+              }, 'google_translate_element');
+            }
+          `
+        }}
+      />
+
       {/* Header */}
       <header className="container mx-auto px-4 py-6 flex justify-between items-center">
         <div className="flex items-center space-x-2">
@@ -14,10 +37,14 @@ export default function Home() {
           <a href="#features" className="text-gray-600 hover:text-green-600 transition-colors">Features</a>
           <a href="#about" className="text-gray-600 hover:text-green-600 transition-colors">About</a>
           <a href="#contact" className="text-gray-600 hover:text-green-600 transition-colors">Contact</a>
+          <div id="google_translate_element" className="scale-75 origin-right"></div>
         </nav>
-        <button className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors">
-          Get Started
-        </button>
+        <div className="flex items-center gap-4">
+          <div id="google_translate_element_mobile" className="md:hidden scale-75"></div>
+          <button className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors">
+            Get Started
+          </button>
+        </div>
       </header>
 
       {/* Hero Section */}
@@ -33,13 +60,23 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
               href="https://t.me/KisanAIBot" 
-              className="bg-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 transition-colors flex items-center gap-2"
+              className="bg-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 transition-colors flex items-center gap-2 shadow-lg"
             >
               📱 Try Telegram Bot
             </a>
-            <button className="border-2 border-green-600 text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-600 hover:text-white transition-colors">
-              🚀 WhatsApp Bot (Coming Soon)
+            <button className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-purple-600 hover:text-white transition-colors shadow-lg">
+              � WhatsApp Bot (Coming Soon)
             </button>
+            <button className="border-2 border-orange-600 text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-600 hover:text-white transition-colors shadow-lg">
+              📱 KisanAI App (Q4 2025)
+            </button>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-2 justify-center items-center mt-4">
+            <span className="text-sm text-gray-500">Also available on:</span>
+            <div className="flex gap-2">
+              <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs">🏪 Google Play Store (Coming)</span>
+              <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs">🍎 App Store (Coming)</span>
+            </div>
           </div>
           <p className="text-sm text-gray-500 mt-4">
             🏆 Built for YUKTI AICTE Hackathon 2025 | Made in India 🇮🇳
