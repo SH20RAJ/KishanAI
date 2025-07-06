@@ -21,7 +21,7 @@ export default function Home() {
       </div>
       
       <Header />
-      <main className="relative z-10">
+      <main className="relative z-10 pt-16">
         <HeroSection />
         <StatsSection />
         <FeaturesSection />

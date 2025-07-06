@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../ui/Button';
+import { Rocket, Mail, Gift, Zap, Globe } from 'lucide-react';
 
 export const CTASection: React.FC = () => {
   return (
@@ -32,7 +33,7 @@ export const CTASection: React.FC = () => {
               size="lg"
               className="bg-white text-green-600 hover:bg-gray-100 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 animate-glow"
             >
-              <span className="text-2xl mr-3">🚀</span>
+              <Rocket className="w-5 h-5 mr-3" />
               <span className="font-bold">Start with Telegram Bot</span>
               <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm ml-3">FREE</span>
             </Button>
@@ -41,14 +42,16 @@ export const CTASection: React.FC = () => {
               size="lg"
               className="border-2 border-white text-white hover:bg-white hover:text-green-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              <span className="text-xl mr-2">📧</span>
+              <Mail className="w-5 h-5 mr-2" />
               Join Waitlist for App
             </Button>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 group">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🆓</div>
+              <div className="text-white mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                <Gift className="w-10 h-10" />
+              </div>
               <div className="text-2xl font-bold mb-3 group-hover:text-yellow-300 transition-colors duration-300">Free Forever</div>
               <div className="text-green-100 group-hover:text-white transition-colors duration-300">
                 Core features always free for farmers
@@ -56,7 +59,9 @@ export const CTASection: React.FC = () => {
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 group">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
+              <div className="text-white mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                <Zap className="w-10 h-10" />
+              </div>
               <div className="text-2xl font-bold mb-3 group-hover:text-yellow-300 transition-colors duration-300">No Registration</div>
               <div className="text-green-100 group-hover:text-white transition-colors duration-300">
                 Start using immediately via Telegram
@@ -64,7 +69,9 @@ export const CTASection: React.FC = () => {
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 group">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🌐</div>
+              <div className="text-white mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                <Globe className="w-10 h-10" />
+              </div>
               <div className="text-2xl font-bold mb-3 group-hover:text-yellow-300 transition-colors duration-300">15+ Languages</div>
               <div className="text-green-100 group-hover:text-white transition-colors duration-300">
                 Support in your local language

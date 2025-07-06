@@ -1,26 +1,27 @@
 import React from 'react';
+import { Users, Globe, Camera, Bot, Check, Zap, Shield } from 'lucide-react';
 
 export const StatsSection: React.FC = () => {
   const stats = [
     {
       title: "Farmers to Impact",
       value: "100M+",
-      icon: "👨‍🌾"
+      icon: <Users className="w-8 h-8" />
     },
     {
       title: "Languages Supported",
       value: "15+",
-      icon: "🌐"
+      icon: <Globe className="w-8 h-8" />
     },
     {
       title: "Crop Disease Images",
       value: "50K+",
-      icon: "📸"
+      icon: <Camera className="w-8 h-8" />
     },
     {
       title: "AI Support",
       value: "24/7",
-      icon: "🤖"
+      icon: <Bot className="w-8 h-8" />
     }
   ];
 
@@ -59,7 +60,7 @@ export const StatsSection: React.FC = () => {
               }}
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                <div className="text-white mb-4 transform group-hover:scale-110 transition-transform duration-300 flex justify-center">
                   {stat.icon}
                 </div>
                 <div className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-yellow-300 transition-colors duration-300">
@@ -80,7 +81,7 @@ export const StatsSection: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xl">✓</span>
+                  <Check className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
                   <div className="font-semibold">100% Free</div>
@@ -90,7 +91,7 @@ export const StatsSection: React.FC = () => {
               
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xl">⚡</span>
+                  <Zap className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
                   <div className="font-semibold">Instant Results</div>
@@ -100,7 +101,7 @@ export const StatsSection: React.FC = () => {
               
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xl">🛡️</span>
+                  <Shield className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-left">
                   <div className="font-semibold">Trusted & Secure</div>
