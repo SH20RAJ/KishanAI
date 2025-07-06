@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface FeatureCardProps {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
   className?: string;
@@ -26,13 +26,13 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
       <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-100 to-emerald-200 rounded-full -translate-y-10 translate-x-10 opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
       
       <div className="relative z-10">
-        <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+        <div className="text-green-600 mb-4 transform group-hover:scale-110 transition-transform duration-300">
           {icon}
         </div>
-        <h4 className="text-xl font-bold mb-4 text-gray-900 group-hover:text-green-700 transition-colors duration-300">
+        <h4 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-green-700 transition-colors duration-300">
           {title}
         </h4>
-        <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
           {description}
         </p>
         
