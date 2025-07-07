@@ -1,22 +1,26 @@
 import React from 'react';
 import { StepCard } from '../ui/StepCard';
+import { MessageSquare, Upload, CheckCircle } from 'lucide-react';
 
 export const HowItWorksSection: React.FC = () => {
   const steps = [
     {
       step: 1,
+      icon: <MessageSquare className="w-8 h-8" />,
       title: "Open Telegram",
-      description: "Search for @KisanAIBot or click our link to start chatting with our AI assistant"
+      description: "Search for @KisanAIBot and start chatting"
     },
     {
       step: 2,
-      title: "Send Photo or Ask Question",
-      description: "Upload crop images for disease detection or type your farming questions in any language"
+      icon: <Upload className="w-8 h-8" />,
+      title: "Send Photo or Question",
+      description: "Upload crop images or ask farming questions"
     },
     {
       step: 3,
+      icon: <CheckCircle className="w-8 h-8" />,
       title: "Get Expert Advice",
-      description: "Receive instant AI-powered solutions, treatments, and personalized recommendations"
+      description: "Receive instant AI-powered solutions"
     }
   ];
 
@@ -24,17 +28,18 @@ export const HowItWorksSection: React.FC = () => {
     <section className="bg-gray-50 py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold text-gray-900 mb-4">How KisanAI Works</h3>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Simple 3-step process to get expert farming advice powered by advanced AI technology
+          <h3 className="text-3xl font-bold text-gray-900 mb-4">How It Works</h3>
+          <p className="text-lg text-gray-600 max-w-xl mx-auto">
+            Simple 3-step process to get expert farming advice
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <StepCard
               key={index}
               step={step.step}
+              icon={step.icon}
               title={step.title}
               description={step.description}
             />
@@ -42,12 +47,11 @@ export const HowItWorksSection: React.FC = () => {
         </div>
         
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">Ready to get started?</p>
           <a 
             href="https://t.me/KisanAIBot"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
           >
-            📱 Try KisanAI Now
+            Try KisanAI Now
           </a>
         </div>
       </div>

@@ -1,29 +1,30 @@
 import React from 'react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
+import { Smartphone, Wifi, Users, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 
 export const MobileAppSection: React.FC = () => {
   const appFeatures = [
     {
-      icon: "📴",
-      title: "Offline Functionality",
-      description: "Core features work without internet connectivity"
+      icon: <Wifi className="w-5 h-5" />,
+      title: "Offline Mode",
+      description: "Works without internet"
     },
     {
-      icon: "🏡",
+      icon: <Users className="w-5 h-5" />,
       title: "Farm Management",
-      description: "Track multiple fields, crops, and farming activities"
+      description: "Track fields and crops"
     },
     {
-      icon: "🔗",
-      title: "IoT Integration",
-      description: "Connect soil sensors and weather stations"
+      icon: <Smartphone className="w-5 h-5" />,
+      title: "Smart Sensors",
+      description: "Connect IoT devices"
     },
     {
-      icon: "🏪",
-      title: "Marketplace Access",
-      description: "Direct farmer-to-consumer sales platform"
+      icon: <ShoppingCart className="w-5 h-5" />,
+      title: "Marketplace",
+      description: "Direct sales platform"
     }
   ];
 
@@ -35,31 +36,27 @@ export const MobileAppSection: React.FC = () => {
             {/* Content */}
             <div>
               <Badge variant="warning" className="mb-4">
-                📱 Coming Q4 2025
+                Coming Q4 2025
               </Badge>
               
-              <h3 className="text-4xl font-bold text-gray-900 mb-6">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">
                 KisanAI Mobile App
-                <span className="block text-2xl font-normal text-gray-600 mt-2">
-                  Complete Farming Companion
-                </span>
               </h3>
               
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                While our Telegram bot serves millions of farmers today, we&apos;re building a comprehensive 
-                mobile app with advanced features for the modern Indian farmer.
+              <p className="text-lg text-gray-700 mb-6">
+                Comprehensive mobile app with advanced farming features.
               </p>
               
               {/* App Features */}
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 mb-8">
                 {appFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white text-xs">{feature.icon}</span>
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="text-white">{feature.icon}</div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">{feature.title}</h4>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <h4 className="font-medium text-gray-900">{feature.title}</h4>
+                      <p className="text-sm text-gray-600">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -83,10 +80,10 @@ export const MobileAppSection: React.FC = () => {
               </div>
               
               <div className="flex items-center gap-4">
-                <span className="text-sm text-gray-600">Will be available on:</span>
+                <span className="text-sm text-gray-600">Available on:</span>
                 <div className="flex gap-2">
-                  <Badge variant="default" size="sm">🏪 Google Play Store</Badge>
-                  <Badge variant="default" size="sm">🍎 Apple App Store</Badge>
+                  <Badge variant="default" size="sm">Google Play</Badge>
+                  <Badge variant="default" size="sm">App Store</Badge>
                 </div>
               </div>
             </div>
@@ -135,12 +132,9 @@ export const MobileAppSection: React.FC = () => {
                 </div>
               </div>
               
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold transform rotate-12">
-                Coming Soon!
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                Made in India 🇮🇳
+              {/* Status badge */}
+              <div className="absolute -top-2 -right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium">
+                Coming Soon
               </div>
             </div>
           </div>

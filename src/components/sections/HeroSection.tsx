@@ -7,13 +7,6 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="container mx-auto px-4 py-16 text-center relative">
       <div className="max-w-4xl mx-auto">
-        {/* Floating elements */}
-        <div className="absolute top-10 left-10 animate-float">
-          <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full opacity-20 blur-sm"></div>
-        </div>
-        <div className="absolute top-20 right-20 animate-float delay-1000">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full opacity-20 blur-sm"></div>
-        </div>
         
         <Badge variant="primary" className="mb-6">
           YUKTI AICTE Hackathon 2025

@@ -26,15 +26,9 @@ export const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 text-white py-20 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-0 w-48 h-48 bg-yellow-400/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
-      </div>
+    <section className="bg-green-600 text-white py-16">
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
@@ -53,11 +47,6 @@ export const StatsSection: React.FC = () => {
             <div
               key={index}
               className="text-center group cursor-pointer"
-              style={{ 
-                animation: `fadeInUp 0.8s ease-out forwards`,
-                animationDelay: `${index * 0.2}s`,
-                opacity: 0
-              }}
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <div className="text-white mb-4 transform group-hover:scale-110 transition-transform duration-300 flex justify-center">

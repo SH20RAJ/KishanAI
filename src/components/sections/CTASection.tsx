@@ -4,15 +4,9 @@ import { Rocket, Mail, Gift, Zap, Globe } from 'lucide-react';
 
 export const CTASection: React.FC = () => {
   return (
-    <section className="bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 text-white py-20 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-yellow-400/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
-      </div>
+    <section className="bg-green-600 text-white py-16">
       
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
             <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
