@@ -55,7 +55,7 @@ export const HowItWorksSection: React.FC = () => {
               Try KisanAI Bot
             </a>
             <a 
-              href="/app"
+              href="/application"
               className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
             >
               Try Full App Demo

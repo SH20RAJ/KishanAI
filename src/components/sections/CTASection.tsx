@@ -32,7 +32,7 @@ export const CTASection: React.FC = () => {
               <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm ml-3">FREE</span>
             </Button>
             <Button 
-              href="/app"
+              href="/application"
               variant="outline"
               size="lg"
               className="border-2 border-white text-white hover:bg-white hover:text-green-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"

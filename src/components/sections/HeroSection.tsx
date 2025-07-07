@@ -36,7 +36,7 @@ export const HeroSection: React.FC = () => {
           <Button 
             variant="outline"
             size="md"
-            href="/app"
+            href="/application"
             className="border border-gray-300 text-gray-600 hover:bg-gray-50"
           >
             <MessageCircle className="w-4 h-4 mr-2" />

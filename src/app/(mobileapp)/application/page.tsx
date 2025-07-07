@@ -24,7 +24,11 @@ import {
   WeatherCard,
   MarketPriceCard,
   CropDoctorCard,
-  FarmManagementCard
+  FarmManagementCard,
+  ChatInterface,
+  BottomNavigation,
+  AlertCard,
+  GovernmentSchemeCard
 } from '@/components/mobile';
 
 // Mock data - In production, this would come from APIs
@@ -167,50 +171,61 @@ export default function MobileApplication() {
     }
   ];
 
-  const bottomNavItems = [
+  const mockSchemes = [
     {
-      id: 'home',
-      label: 'होम',
-      icon: <Home size={24} />
+      id: '1',
+      name: 'PM Kisan Samman Nidhi',
+      hindiName: 'पीएम किसान सम्मान निधि',
+      description: 'प्रति वर्ष ₹6,000 की सहायता',
+      benefit: '₹6,000/वर्ष',
+      eligibility: 'सभी छोटे किसान',
+      status: 'eligible' as const,
+      deadline: '31 मार्च 2024'
     },
     {
-      id: 'crop-doctor',
-      label: 'फसल डॉक्टर',
-      icon: <Leaf size={24} />
+      id: '2',
+      name: 'Pradhan Mantri Fasal Bima Yojana',
+      hindiName: 'प्रधानमंत्री फसल बीमा योजना',
+      description: 'फसल नुकसान की भरपाई',
+      benefit: '90% प्रीमियम सब्सिडी',
+      eligibility: 'सभी किसान',
+      status: 'applied' as const
     },
     {
-      id: 'market',
-      label: 'मंडी भाव',
-      icon: <TrendingUp size={24} />
-    },
-    {
-      id: 'schemes',
-      label: 'योजनाएं',
-      icon: <Award size={24} />,
-      badge: 3
-    },
-    {
-      id: 'chat',
-      label: 'चैट',
-      icon: <MessageCircle size={24} />,
-      badge: 2
+      id: '3',
+      name: 'Kisan Credit Card',
+      hindiName: 'किसान क्रेडिट कार्ड',
+      description: 'कम ब्याज दर पर लोन',
+      benefit: '4% ब्याज दर',
+      eligibility: 'भूमि स्वामी किसान',
+      status: 'received' as const
     }
   ];
 
-  return (
-    <div className="min-h-screen bg-gray-50 pb-20">
-      {/* Mobile Header */}
-      <MobileHeader
-        userName="राम सिंह"
-        location="पंजाब, भारत"
-        notificationCount={5}
-        onMenuClick={() => console.log('Menu clicked')}
-        onNotificationClick={() => console.log('Notifications clicked')}
-        onProfileClick={() => console.log('Profile clicked')}
-      />
+  const mockAlerts = [
+    {
+      id: '1',
+      type: 'warning' as const,
+      title: 'मौसम चेतावनी',
+      message: 'अगले 2 दिन में तेज बारिश की संभावना है। फसल की सुरक्षा करें।',
+      timestamp: '2 घंटे पहले',
+      actionText: 'विस्तार देखें'
+    },
+    {
+      id: '2',
+      type: 'info' as const,
+      title: 'नई योजना',
+      message: 'सोलर पंप सब्सिडी योजना के लिए आवेदन शुरू हो गए हैं।',
+      timestamp: '1 दिन पहले',
+      actionText: 'आवेदन करें'
+    }
+  ];
 
-      {/* Main Content */}
-      <div className="p-4 space-y-6">
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'home':
+        return (
+          <div className="p-4 space-y-6">
         {/* Time and Date Display */}
         <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
           <div className="text-center">
@@ -295,37 +310,108 @@ export default function MobileApplication() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+            </div>
+          </div>
+        );
+
+      case 'crop-doctor':
+        return (
+          <div className="p-4 space-y-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">फसल डॉक्टर</h2>
+            <CropDoctorCard
+              recentDiagnoses={mockRecentDiagnoses}
+              onCameraClick={() => console.log('Camera clicked')}
+              onUploadClick={() => console.log('Upload clicked')}
+            />
+            <AlertCard 
+              alerts={mockAlerts.filter(alert => alert.type === 'warning')}
+              onAlertAction={(alert) => console.log('Alert action:', alert)}
+              onAlertDismiss={(id) => console.log('Alert dismissed:', id)}
+            />
+          </div>
+        );
+
+      case 'market':
+        return (
+          <div className="p-4 space-y-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">मंडी भाव</h2>
+            <MarketPriceCard prices={mockMarketPrices} />
+            <div className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100">
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">मूल्य रुझान</h3>
+              <div className="space-y-3">
+                {mockMarketPrices.map((crop, index) => (
+                  <div key={index} className="p-3 bg-gray-50 rounded-xl">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">{crop.hindiName}</span>
+                      <span className="text-sm text-gray-500">पिछले 7 दिन</span>
+                    </div>
+                    <div className="mt-2 h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-green-500 rounded-full transition-all duration-500"
+                        style={{ width: `${Math.random() * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'schemes':
+        return (
+          <div className="p-4 space-y-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">सरकारी योजनाएं</h2>
+            <GovernmentSchemeCard 
+              schemes={mockSchemes}
+              onSchemeClick={(scheme) => console.log('Scheme clicked:', scheme)}
+            />
+            <AlertCard 
+              alerts={mockAlerts.filter(alert => alert.type === 'info')}
+              onAlertAction={(alert) => console.log('Alert action:', alert)}
+              onAlertDismiss={(id) => console.log('Alert dismissed:', id)}
+            />
+          </div>
+        );
+
+      case 'chat':
+        return (
+          <div className="h-screen flex flex-col">
+            <div className="flex-1">
+              <ChatInterface
+                onSendMessage={(message) => console.log('Message sent:', message)}
+                onVoiceMessage={() => console.log('Voice message')}
+                onImageUpload={(file) => console.log('Image uploaded:', file)}
+              />
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 pb-20">
+      {/* Mobile Header */}
+      <MobileHeader
+        userName="राम सिंह"
+        location="पंजाब, भारत"
+        notificationCount={5}
+        onMenuClick={() => console.log('Menu clicked')}
+        onNotificationClick={() => console.log('Notifications clicked')}
+        onProfileClick={() => console.log('Profile clicked')}
+      />
+
+      {/* Main Content */}
+      {renderTabContent()}
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2">
-        <div className="flex items-center justify-around">
-          {bottomNavItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              className={`
-                flex flex-col items-center space-y-1 p-2 rounded-xl transition-all duration-200
-                ${activeTab === item.id 
-                  ? 'bg-green-100 text-green-600' 
-                  : 'text-gray-500 hover:text-gray-700'
-                }
-              `}
-            >
-              <div className="relative">
-                {item.icon}
-                {item.badge && item.badge > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    {item.badge > 9 ? '9+' : item.badge}
-                  </span>
-                )}
-              </div>
-              <span className="text-xs font-medium">{item.label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
+      <BottomNavigation
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+      />
     </div>
   );
 }
