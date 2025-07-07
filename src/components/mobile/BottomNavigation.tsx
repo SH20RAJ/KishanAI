@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Home, Leaf, TrendingUp, Award, MessageCircle } from 'lucide-react';
 
 interface NavItem {
@@ -6,24 +8,36 @@ interface NavItem {
   label: string;
   icon: React.ComponentType<{ size?: number; className?: string }>;
   badge?: number;
+  href: string;
 }
 
 interface BottomNavigationProps {
-  activeTab: string;
-  onTabChange: (tabId: string) => void;
+  activeTab?: string;
+  onTabChange?: (tabId: string) => void;
 }
 
-export const BottomNavigation: React.FC<BottomNavigationProps> = ({
-  activeTab,
-  onTabChange
-}) => {
+export const BottomNavigation: React.FC<BottomNavigationProps> = () => {
+  const pathname = usePathname();
+  
   const navItems: NavItem[] = [
-    { id: 'home', label: 'होम', icon: Home },
-    { id: 'doctor', label: 'डॉक्टर', icon: Leaf },
-    { id: 'market', label: 'मंडी', icon: TrendingUp },
-    { id: 'schemes', label: 'योजनाएं', icon: Award, badge: 3 },
-    { id: 'chat', label: 'चैट', icon: MessageCircle, badge: 2 }
+    { id: 'home', label: 'होम', icon: Home, href: '/application' },
+    { id: 'doctor', label: 'डॉक्टर', icon: Leaf, href: '/application/doctor' },
+    { id: 'market', label: 'मंडी', icon: TrendingUp, href: '/application/market' },
+    { id: 'schemes', label: 'योजनाएं', icon: Award, badge: 3, href: '/application/schemes' },
+    { id: 'chat', label: 'चैट', icon: MessageCircle, badge: 2, href: '/application/chat' }
   ];
+
+  // Determine active tab based on current pathname
+  const getActiveTab = () => {
+    if (pathname === '/application' || pathname.startsWith('/application/home')) return 'home';
+    if (pathname.startsWith('/application/doctor')) return 'doctor';
+    if (pathname.startsWith('/application/market')) return 'market';
+    if (pathname.startsWith('/application/schemes')) return 'schemes';
+    if (pathname.startsWith('/application/chat')) return 'chat';
+    return 'home';
+  };
+
+  const activeTab = getActiveTab();
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 safe-area-pb">
@@ -33,9 +47,9 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
           const isActive = activeTab === item.id;
           
           return (
-            <button
+            <Link
               key={item.id}
-              onClick={() => onTabChange(item.id)}
+              href={item.href}
               className={`
                 relative flex flex-col items-center py-2 px-3 rounded-xl transition-all duration-200
                 ${isActive 
@@ -61,7 +75,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
               `}>
                 {item.label}
               </span>
-            </button>
+            </Link>
           );
         })}
       </div>

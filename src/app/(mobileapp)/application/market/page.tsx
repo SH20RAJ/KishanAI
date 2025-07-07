@@ -102,7 +102,6 @@ const topLosers = [
 ];
 
 export default function MarketPage() {
-  const [activeTab, setActiveTab] = useState('market');
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -317,10 +316,7 @@ export default function MarketPage() {
       </div>
 
       {/* Bottom Navigation */}
-      <BottomNavigation 
-        activeTab={activeTab} 
-        onTabChange={setActiveTab} 
-      />
+      <BottomNavigation />
     </div>
   );
 }

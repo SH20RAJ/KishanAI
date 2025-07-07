@@ -42,3 +42,8 @@ next-env.d.ts
 .wrangler
 .dev.vars*
 .env
+worker.js
+.gitignore
+test_bot.js
+TELEGRAM_BOT_README.md
+deploy_bot.sh

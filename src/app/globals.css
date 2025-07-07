@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* Hindi font support */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -182,8 +184,6 @@ body {
   }
 }
 
-/* Hindi font support */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap');
 
 .hindi-text {
   font-family: 'Noto Sans Devanagari', 'Geist Sans', system-ui, sans-serif;

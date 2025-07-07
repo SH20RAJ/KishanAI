@@ -61,8 +61,6 @@ const expertServices = [
 ];
 
 export default function DoctorPage() {
-  const [activeTab, setActiveTab] = useState('doctor');
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-emerald-50">
       {/* Header */}
@@ -244,10 +242,7 @@ export default function DoctorPage() {
       </div>
 
       {/* Bottom Navigation */}
-      <BottomNavigation 
-        activeTab={activeTab} 
-        onTabChange={setActiveTab} 
-      />
+      <BottomNavigation />
     </div>
   );
 }
