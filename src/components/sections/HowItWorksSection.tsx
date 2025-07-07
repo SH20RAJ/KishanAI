@@ -47,12 +47,20 @@ export const HowItWorksSection: React.FC = () => {
         </div>
         
         <div className="text-center mt-12">
-          <a 
-            href="https://t.me/KisanAIBot"
-            className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
-          >
-            Try KisanAI Now
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="https://t.me/KisanAIBot"
+              className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
+            >
+              Try KisanAI Bot
+            </a>
+            <a 
+              href="/app"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            >
+              Try Full App Demo
+            </a>
+          </div>
         </div>
       </div>
     </section>
