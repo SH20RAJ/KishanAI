@@ -24,25 +24,25 @@ const chatFeatures = [
   {
     icon: Bot,
     title: 'AI किसान सहायक',
-    description: 'DeepSeek AI से संचालित स्मार्ट बॉट',
+    description: 'DeepSeek AI से संचालित - कोई भी खेती का सवाल पूछें!',
     color: 'bg-blue-500'
   },
   {
     icon: Globe,
-    title: 'बहुभाषी समर्थन',
-    description: 'हिंदी, अंग्रेजी और स्थानीय भाषाओं में',
+    title: 'बहुभाषी AI समर्थन',
+    description: '11 भारतीय भाषाओं में स्मार्ट जवाब',
     color: 'bg-green-500'
   },
   {
     icon: Zap,
-    title: 'तुरंत जवाब',
-    description: '24/7 उपलब्ध तत्काल सहायता',
+    title: 'तुरंत AI जवाब',
+    description: '24/7 उपलब्ध AI एक्सपर्ट सहायता',
     color: 'bg-yellow-500'
   },
   {
     icon: Users,
-    title: 'विशेषज्ञों से जुड़ें',
-    description: 'कृषि विशेषज्ञों से सीधी बातचीत',
+    title: 'व्यक्तिगत सलाह',
+    description: 'AI आपकी फसल के लिए विशिष्ट सुझाव देता है',
     color: 'bg-purple-500'
   }
 ];
@@ -77,23 +77,23 @@ const recentChats = [
 const quickActions = [
   {
     icon: MessageCircle,
-    title: 'फसल की समस्या',
-    description: 'रोग, कीट और मौसम संबंधी सवाल'
+    title: 'AI से फसल की समस्या पूछें',
+    description: 'रोग, कीट और मौसम संबंधी AI सलाह'
   },
   {
     icon: Image,
-    title: 'फोटो भेजें',
-    description: 'पौधे की तस्वीर से तुरंत निदान'
+    title: 'फोटो भेजकर AI निदान',
+    description: 'पौधे की तस्वीर से तुरंत AI विश्लेषण'
   },
   {
     icon: Phone,
-    title: 'विशेषज्ञ कॉल',
-    description: 'कृषि एक्सपर्ट से फोन पर बात करें'
+    title: 'AI चैट सहायता',
+    description: 'DeepSeek AI से तुरंत बातचीत करें'
   },
   {
     icon: Video,
-    title: 'वीडियो कॉल',
-    description: 'फसल दिखाकर सलाह लें'
+    title: 'स्मार्ट AI सुझाव',
+    description: 'व्यक्तिगत खेती की AI रणनीति'
   }
 ];
 
@@ -129,7 +129,7 @@ const ChatPage = () => {
             <div className="flex-1">
               <h2 className="text-xl font-bold mb-1">KisanAI Telegram Bot</h2>
               <p className="text-blue-100 text-sm">
-                सबसे एडवांस्ड AI किसान सहायक - अभी शुरू करें!
+                DeepSeek AI से संचालित - कोई भी खेती का सवाल पूछें!
               </p>
             </div>
           </div>
@@ -137,19 +137,31 @@ const ChatPage = () => {
           <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
             <div className="flex items-center gap-2">
               <Zap className="h-4 w-4" />
-              <span>24/7 उपलब्ध</span>
+              <span>AI तुरंत जवाब</span>
             </div>
             <div className="flex items-center gap-2">
               <Globe className="h-4 w-4" />
-              <span>बहुभाषी समर्थन</span>
+              <span>11 भाषाओं में</span>
             </div>
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4" />
-              <span>AI पावर्ड</span>
+              <span>DeepSeek AI पावर्ड</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-4 w-4" />
-              <span>मुफ्त सेवा</span>
+              <span>फ्री सेवा</span>
+            </div>
+          </div>
+          
+          <div className="mt-4 bg-white/10 rounded-lg p-3 mb-4">
+            <h3 className="font-semibold mb-2 flex items-center gap-2">
+              <Bot className="h-4 w-4" />
+              AI से पूछें:
+            </h3>
+            <div className="text-sm text-blue-100 space-y-1">
+              <p>• "मेरी गेहूं की फसल में पीले धब्बे हैं"</p>
+              <p>• "टमाटर के लिए सबसे अच्छा उर्वरक"</p>
+              <p>• "बारिश से पहले क्या करना चाहिए"</p>
             </div>
           </div>
           

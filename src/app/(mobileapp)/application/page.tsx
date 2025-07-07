@@ -13,9 +13,13 @@ export default function MobileApplication() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
-        <p className="text-gray-600">लोड हो रहा है...</p>
+      <div className="text-center p-8">
+        <div className="relative">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-gray-200 border-t-green-600 mx-auto mb-6"></div>
+          <div className="absolute inset-0 rounded-full h-16 w-16 border-4 border-transparent border-t-green-400 animate-spin mx-auto" style={{ animationDuration: '1.5s' }}></div>
+        </div>
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">KisanAI</h2>
+        <p className="text-gray-600 text-sm">Initializing application...</p>
       </div>
     </div>
   );
