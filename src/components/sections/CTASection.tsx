@@ -25,7 +25,7 @@ export const CTASection: React.FC = () => {
               href="https://t.me/KisanAIBot"
               variant="primary"
               size="lg"
-              className="bg-white text-green-600 hover:bg-gray-100 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 animate-glow"
+              className="  border-fuchsia-400 border text-green-600 hover:bg-gray-100 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 animate-glow"
             >
               <Rocket className="w-5 h-5 mr-3" />
               <span className="font-bold">Start with Telegram Bot</span>
