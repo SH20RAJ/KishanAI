@@ -16,3 +16,4 @@ export { MobileAppSection } from './sections/MobileAppSection';
 export { TechnologySection } from './sections/TechnologySection';
 export { CTASection } from './sections/CTASection';
 export { Footer } from './sections/Footer';
+export { PitchDataSection } from './sections/PitchDataSection';
