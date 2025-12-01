@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
 
-interface BaseButtonProps {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'accent';
   size?: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
   href?: string;
   className?: string;
   children: React.ReactNode;

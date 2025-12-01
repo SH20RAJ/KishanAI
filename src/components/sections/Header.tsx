@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
             <h1 className="text-xl font-bold text-gray-900">KisanAI</h1>
           </div>
         </div>
-        
+
         {/* Navigation - Desktop */}
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#features" className="text-gray-600 hover:text-green-600 transition-colors duration-200 font-medium text-sm">
@@ -24,19 +24,22 @@ export const Header: React.FC = () => {
           <a href="#how-it-works" className="text-gray-600 hover:text-green-600 transition-colors duration-200 font-medium text-sm">
             How it Works
           </a>
-          
+          <a href="/marketplace" className="text-gray-600 hover:text-green-600 transition-colors duration-200 font-medium text-sm">
+            Marketplace
+          </a>
+
           {/* Language Selector - Clean Design */}
           <div className="relative">
             <div id="google_translate_element" className="translate-element"></div>
           </div>
         </nav>
-        
+
         {/* CTA Button */}
         <div className="flex items-center gap-3">
           {/* Mobile Language Selector */}
           <div id="google_translate_element_mobile" className="md:hidden translate-element-mobile"></div>
-          
-          <Button 
+
+          <Button
             href="https://t.me/KisanAIBot"
             variant="primary"
             size="sm"

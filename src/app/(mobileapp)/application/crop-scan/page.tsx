@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { 
-  Camera, 
-  Upload, 
-  ArrowLeft, 
-  Scan, 
-  CheckCircle, 
+import Image from 'next/image';
+import {
+  Camera,
+  Upload,
+  ArrowLeft,
+  Scan,
+  CheckCircle,
   AlertTriangle,
   Leaf,
   Clock,
@@ -47,7 +48,7 @@ export default function CropScanPage() {
   const startScanning = () => {
     setIsScanning(true);
     setScanResult(null);
-    
+
     // Simulate AI processing
     setTimeout(() => {
       setIsScanning(false);
@@ -92,7 +93,7 @@ export default function CropScanPage() {
 
       {/* Back Button */}
       <div className="p-4">
-        <button 
+        <button
           onClick={() => window.history.back()}
           className="flex items-center space-x-2 text-gray-600 hover:text-gray-800"
         >
@@ -164,9 +165,11 @@ export default function CropScanPage() {
         {selectedImage && (
           <div className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">अपलोड की गई तस्वीर</h3>
-            <img 
-              src={selectedImage} 
-              alt="Uploaded crop" 
+            <Image
+              src={selectedImage}
+              alt="Uploaded crop"
+              width={400}
+              height={300}
               className="w-full h-64 object-cover rounded-xl"
             />
           </div>
@@ -181,11 +184,11 @@ export default function CropScanPage() {
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">AI विश्लेषण चल रहा है...</h3>
               <p className="text-sm text-gray-600 mb-4">कृपया प्रतीक्षा करें</p>
-              
+
               <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
                 <div className="bg-blue-600 h-2 rounded-full animate-pulse" style={{ width: '70%' }}></div>
               </div>
-              
+
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center justify-center space-x-2">
                   <Clock size={16} />
@@ -205,7 +208,7 @@ export default function CropScanPage() {
                 <CheckCircle size={24} className="text-green-600" />
                 <h3 className="text-lg font-semibold text-gray-800">निदान पूरा</h3>
               </div>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                   <div>
@@ -256,7 +259,7 @@ export default function CropScanPage() {
 
             {/* Action Buttons */}
             <div className="grid grid-cols-2 gap-4">
-              <button 
+              <button
                 onClick={() => {
                   setSelectedImage(null);
                   setScanResult(null);

@@ -16,15 +16,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KisanAI - AI-Powered Farming Assistant",
     description: "Transform your farming with AI-powered crop disease detection and expert agricultural advice in your language",
-    url: "https://kisanai.in",
+    url: "https://kishanai.strivio.world/",
     siteName: "KisanAI",
     locale: "en_IN",
     type: "website",
+    images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "KisanAI - AI for Farmers",
     description: "Instant crop disease detection & agricultural guidance for Indian farmers",
+    images: ["/og.png"],
   },
   robots: {
     index: true,
