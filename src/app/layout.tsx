@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     siteName: "KisanAI",
     locale: "en_IN",
     type: "website",
-    images: ["/og.png"],
+    images: ["/og.png", "/og-image.png", "/logo.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "KisanAI - AI for Farmers",
     description: "Instant crop disease detection & agricultural guidance for Indian farmers",
-    images: ["/og.png"],
+    images: ["/og.png", "/og-image.png", "/logo.png"],
   },
   robots: {
     index: true,
