@@ -1,22 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { 
-  Camera, 
-  TrendingUp, 
-  Cloud, 
-  Award, 
-  MessageCircle, 
-  Leaf,
-  Sun,
-  CloudRain,
+import React from 'react';
+import {
+  Camera,
+  TrendingUp,
+  Cloud,
+  Award,
   Sprout,
   Bell,
   User,
-  Menu,
   ArrowRight,
-  Calendar,
-  MapPin,
+  Leaf,
   IndianRupee
 } from 'lucide-react';
 import Link from 'next/link';
@@ -26,11 +20,8 @@ import {
   MobileHeader,
   QuickActionCard,
   WeatherCard,
-  MarketPriceCard,
-  CropDoctorCard,
-  FarmManagementCard,
   AlertCard,
-  GovernmentSchemeCard,
+  FarmManagementCard,
   BottomNavigation
 } from '@/components/mobile';
 
@@ -96,48 +87,46 @@ const mockFarms = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-yellow-50">
+    <div className="min-h-screen bg-gray-50 pb-24">
       {/* Header */}
-      <MobileHeader 
+      <MobileHeader
         title="KisanAI"
         showBack={false}
         rightElement={
           <div className="flex items-center gap-2">
-            <button className="p-2 rounded-full bg-white/80 backdrop-blur-sm shadow-sm">
-              <Bell size={20} className="text-gray-600" />
+            <button className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
+              <Bell size={20} className="text-white" />
             </button>
-            <button className="p-2 rounded-full bg-white/80 backdrop-blur-sm shadow-sm">
-              <User size={20} className="text-gray-600" />
+            <button className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
+              <User size={20} className="text-white" />
             </button>
           </div>
         }
       />
 
       {/* Content */}
-      <div className="px-4 pt-6 pb-24 space-y-6">
+      <div className="px-4 -mt-6 relative z-10 space-y-6">
         {/* Welcome Section */}
-        <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-6 text-white shadow-lg">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-xl font-bold mb-1">नमस्ते, किसान जी! 🌾</h2>
-              <p className="text-green-100 text-sm">आज आपकी खेती कैसी चल रही है?</p>
-            </div>
-            <div className="bg-white/20 rounded-full p-3">
-              <Sprout size={32} className="text-white" />
-            </div>
+        <div className="bg-white rounded-2xl p-5 shadow-md border border-gray-100 flex items-center justify-between">
+          <div>
+            <h2 className="text-lg font-bold text-gray-800 mb-1">नमस्ते, किसान जी! 🙏</h2>
+            <p className="text-gray-500 text-sm">आज आपकी खेती कैसी चल रही है?</p>
+          </div>
+          <div className="w-12 h-12 bg-[var(--secondary)] rounded-full flex items-center justify-center">
+            <Sprout size={24} className="text-[var(--primary)]" />
           </div>
         </div>
 
         {/* Quick Actions */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-800">त्वरित सेवाएं</h3>
+          <h3 className="text-lg font-bold text-gray-800 px-1">त्वरित सेवाएं</h3>
           <div className="grid grid-cols-2 gap-4">
             <Link href="/application/crop-scan">
               <QuickActionCard
                 icon={Camera}
                 title="फसल स्कैन"
                 subtitle="रोग पहचान"
-                color="bg-gradient-to-br from-blue-500 to-blue-600"
+                color="from-blue-500 to-blue-600"
               />
             </Link>
             <Link href="/application/weather-forecast">
@@ -145,7 +134,7 @@ export default function HomePage() {
                 icon={Cloud}
                 title="मौसम"
                 subtitle="7 दिन का पूर्वानुमान"
-                color="bg-gradient-to-br from-cyan-500 to-cyan-600"
+                color="from-cyan-500 to-cyan-600"
               />
             </Link>
             <Link href="/application/market-prices">
@@ -153,7 +142,7 @@ export default function HomePage() {
                 icon={TrendingUp}
                 title="मंडी भाव"
                 subtitle="आज के दाम"
-                color="bg-gradient-to-br from-orange-500 to-orange-600"
+                color="from-orange-500 to-orange-600"
               />
             </Link>
             <Link href="/application/schemes">
@@ -161,7 +150,7 @@ export default function HomePage() {
                 icon={Award}
                 title="सरकारी योजनाएं"
                 subtitle="नई योजनाएं"
-                color="bg-gradient-to-br from-purple-500 to-purple-600"
+                color="from-purple-500 to-purple-600"
               />
             </Link>
           </div>
@@ -169,9 +158,9 @@ export default function HomePage() {
 
         {/* Weather Widget */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-800">आज का मौसम</h3>
-            <Link href="/application/weather-forecast" className="text-green-600 text-sm font-medium flex items-center gap-1">
+          <div className="flex items-center justify-between px-1">
+            <h3 className="text-lg font-bold text-gray-800">आज का मौसम</h3>
+            <Link href="/application/weather-forecast" className="text-[var(--primary)] text-sm font-semibold flex items-center gap-1">
               विस्तार से देखें <ArrowRight size={16} />
             </Link>
           </div>
@@ -180,33 +169,32 @@ export default function HomePage() {
 
         {/* Market Prices Preview */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-800">मंडी भाव</h3>
-            <Link href="/application/market-prices" className="text-green-600 text-sm font-medium flex items-center gap-1">
+          <div className="flex items-center justify-between px-1">
+            <h3 className="text-lg font-bold text-gray-800">मंडी भाव</h3>
+            <Link href="/application/market-prices" className="text-[var(--primary)] text-sm font-semibold flex items-center gap-1">
               सभी देखें <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-            <div className="space-y-3">
+          <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div className="space-y-4">
               {mockMarketPrices.map((item, index) => (
-                <div key={index} className="flex items-center justify-between py-2">
+                <div key={index} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                      <Leaf size={20} className="text-green-600" />
+                    <div className="w-10 h-10 bg-[var(--secondary)] rounded-full flex items-center justify-center">
+                      <Leaf size={20} className="text-[var(--primary)]" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-800">{item.crop}</p>
+                      <p className="font-bold text-gray-800">{item.crop}</p>
                       <p className="text-xs text-gray-500">{item.unit}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="flex items-center gap-1">
-                      <IndianRupee size={14} className="text-gray-600" />
-                      <span className="font-semibold text-gray-800">{item.price}</span>
+                    <div className="flex items-center justify-end gap-1">
+                      <IndianRupee size={14} className="text-gray-400" />
+                      <span className="font-bold text-gray-800 text-lg">{item.price}</span>
                     </div>
-                    <div className={`text-xs flex items-center gap-1 ${
-                      item.change > 0 ? 'text-green-600' : 'text-red-600'
-                    }`}>
+                    <div className={`text-xs flex items-center justify-end gap-1 font-medium ${item.change > 0 ? 'text-green-600' : 'text-red-600'
+                      }`}>
                       {item.change > 0 ? <TrendingUp size={12} /> : <TrendingUp size={12} className="rotate-180" />}
                       {Math.abs(item.change)}%
                     </div>
@@ -219,13 +207,13 @@ export default function HomePage() {
 
         {/* Alerts */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-800">महत्वपूर्ण सूचनाएं</h3>
+          <h3 className="text-lg font-bold text-gray-800 px-1">महत्वपूर्ण सूचनाएं</h3>
           <AlertCard alerts={mockAlerts} />
         </div>
 
         {/* Farm Management Quick Access */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-800">खेत प्रबंधन</h3>
+          <h3 className="text-lg font-bold text-gray-800 px-1">खेत प्रबंधन</h3>
           <FarmManagementCard farms={mockFarms} />
         </div>
       </div>

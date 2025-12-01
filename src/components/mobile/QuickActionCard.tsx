@@ -14,7 +14,7 @@ export const QuickActionCard: React.FC<QuickActionCardProps> = ({
   icon: Icon,
   title,
   subtitle,
-  color,
+  color, // Keeping color prop for backward compatibility but might override styles
   onClick,
   isActive = false
 }) => {
@@ -22,31 +22,23 @@ export const QuickActionCard: React.FC<QuickActionCardProps> = ({
     <button
       onClick={onClick}
       className={`
-        w-full p-4 rounded-2xl transition-all duration-300 transform hover:scale-105 active:scale-95
-        ${isActive 
-          ? `bg-gradient-to-br ${color} shadow-lg` 
-          : 'bg-white border border-gray-100 hover:shadow-md'
-        }
+        w-full p-4 rounded-xl transition-all duration-300 text-left
+        border border-gray-100 shadow-sm hover:shadow-md hover:border-[var(--primary)]
+        bg-white group
       `}
     >
       <div className="flex items-center space-x-3">
         <div className={`
-          p-3 rounded-xl
-          ${isActive 
-            ? 'bg-white/20' 
-            : `bg-gradient-to-br ${color}`
-          }
+          p-3 rounded-lg bg-[var(--secondary)] text-[var(--primary)]
+          group-hover:bg-[var(--primary)] group-hover:text-white transition-colors
         `}>
-          <Icon 
-            size={24} 
-            className={isActive ? 'text-white' : 'text-white'} 
-          />
+          <Icon size={24} />
         </div>
-        <div className="text-left">
-          <h3 className={`font-semibold text-sm ${isActive ? 'text-white' : 'text-gray-800'}`}>
+        <div>
+          <h3 className="font-bold text-sm text-gray-800 group-hover:text-[var(--primary)] transition-colors">
             {title}
           </h3>
-          <p className={`text-xs ${isActive ? 'text-white/80' : 'text-gray-500'}`}>
+          <p className="text-xs text-gray-500">
             {subtitle}
           </p>
         </div>
