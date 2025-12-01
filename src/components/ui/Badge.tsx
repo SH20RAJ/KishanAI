@@ -2,38 +2,24 @@ import React from 'react';
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary' | 'outline' | 'accent';
   className?: string;
 }
 
 export const Badge: React.FC<BadgeProps> = ({
   children,
-  variant = 'default',
-  size = 'md',
+  variant = 'primary',
   className = ''
 }) => {
-  const baseClasses = 'inline-flex items-center font-medium rounded-full';
-  
   const variants = {
-    default: 'bg-gray-100 text-gray-700',
-    primary: 'bg-green-100 text-green-700',
-    secondary: 'bg-blue-100 text-blue-700',
-    success: 'bg-emerald-100 text-emerald-700',
-    warning: 'bg-orange-100 text-orange-700',
-    error: 'bg-red-100 text-red-700'
+    primary: "bg-[var(--secondary)] text-[var(--primary-dark)] border border-green-200",
+    secondary: "bg-gray-100 text-gray-800 border border-gray-200",
+    outline: "bg-transparent border border-[var(--primary)] text-[var(--primary)]",
+    accent: "bg-[var(--accent-light)] text-yellow-800 border border-yellow-200"
   };
-
-  const sizes = {
-    sm: 'px-2 py-1 text-xs',
-    md: 'px-3 py-1 text-sm',
-    lg: 'px-4 py-2 text-base'
-  };
-
-  const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
 
   return (
-    <span className={classes}>
+    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${variants[variant]} ${className}`}>
       {children}
     </span>
   );

@@ -4,18 +4,23 @@ interface CardProps {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
+  bordered?: boolean;
 }
 
-export const Card: React.FC<CardProps> = ({ 
-  children, 
-  className = '', 
-  hover = false 
+export const Card: React.FC<CardProps> = ({
+  children,
+  className = '',
+  hover = false,
+  bordered = true
 }) => {
-  const baseClasses = 'bg-white rounded-xl shadow-sm border border-gray-100';
-  const hoverClasses = hover ? 'hover:shadow-lg hover:border-gray-200 transition-all duration-300' : '';
-  
   return (
-    <div className={`${baseClasses} ${hoverClasses} ${className}`}>
+    <div className={`
+      bg-white rounded-xl 
+      ${bordered ? 'border border-gray-100' : ''}
+      ${hover ? 'transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-green-100' : ''}
+      shadow-sm
+      ${className}
+    `}>
       {children}
     </div>
   );

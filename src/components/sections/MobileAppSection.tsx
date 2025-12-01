@@ -1,143 +1,115 @@
 import React from 'react';
 import { Button } from '../ui/Button';
-import { Badge } from '../ui/Badge';
-import { Smartphone, Wifi, Users, ShoppingCart } from 'lucide-react';
-import Link from 'next/link';
+import { CheckCircle2, Smartphone, ArrowRight } from 'lucide-react';
 
 export const MobileAppSection: React.FC = () => {
-  const appFeatures = [
-    {
-      icon: <Wifi className="w-5 h-5" />,
-      title: "Offline Mode",
-      description: "Works without internet"
-    },
-    {
-      icon: <Users className="w-5 h-5" />,
-      title: "Farm Management",
-      description: "Track fields and crops"
-    },
-    {
-      icon: <Smartphone className="w-5 h-5" />,
-      title: "Smart Sensors",
-      description: "Connect IoT devices"
-    },
-    {
-      icon: <ShoppingCart className="w-5 h-5" />,
-      title: "Marketplace",
-      description: "Direct sales platform"
-    }
-  ];
-
   return (
-    <section className="bg-gradient-to-r from-orange-50 to-amber-50 py-16">
+    <section className="py-20 bg-[var(--secondary)] overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div>
-              <Badge variant="warning" className="mb-4">
-                Coming Q4 2025
-              </Badge>
-              
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                KisanAI Mobile App
-              </h3>
-              
-              <p className="text-lg text-gray-700 mb-6">
-                Comprehensive mobile app with advanced farming features.
-              </p>
-              
-              {/* App Features */}
-              <div className="space-y-3 mb-8">
-                {appFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <div className="text-white">{feature.icon}</div>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900">{feature.title}</h4>
-                      <p className="text-sm text-gray-600">{feature.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        <div className="flex flex-col lg:flex-row items-center gap-16">
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <Link
-                  className="bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-lg"
-                  href='https://tally.so/r/wvaEN8'
-                >
-                  📧 Join Waitlist
-                </Link>
-                <Button 
-                  variant="outline"
-                  size="lg"
-                  className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
-                >
-                  📖 Learn More
-                </Button>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <span className="text-sm text-gray-600">Available on:</span>
-                <div className="flex gap-2">
-                  <Badge variant="default" size="sm">Google Play</Badge>
-                  <Badge variant="default" size="sm">App Store</Badge>
+          {/* Left Content */}
+          <div className="flex-1 order-2 lg:order-1">
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-main)] mb-6">
+              Your Personal <span className="text-[var(--primary)]">Crop Doctor</span>
+            </h2>
+            <p className="text-lg text-[var(--text-secondary)] mb-8 leading-relaxed">
+              Diagnose crop issues in seconds. Just take a photo, and our AI will identify the disease and suggest the best treatment.
+            </p>
+
+            <div className="space-y-4 mb-10">
+              {[
+                "Instant disease detection with 95% accuracy",
+                "Treatment recommendations in your local language",
+                "Preventive measures to save your crop",
+                "Connect with expert agronomists"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-[var(--primary)] flex-shrink-0" />
+                  <span className="text-gray-700 font-medium">{item}</span>
                 </div>
-              </div>
+              ))}
             </div>
-            
-            {/* App Mockup/Visual */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-orange-600 to-amber-600 rounded-3xl p-8 shadow-2xl">
-                <div className="bg-white rounded-2xl p-6 shadow-inner">
-                  <div className="space-y-4">
-                    {/* Mock app interface */}
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-lg text-gray-900">🌾 KisanAI</h4>
-                      <div className="w-6 h-6 bg-green-500 rounded-full"></div>
-                    </div>
-                    
-                    <div className="bg-gray-50 rounded-lg p-4">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 bg-blue-500 rounded-full"></div>
-                        <div>
-                          <div className="h-3 bg-gray-300 rounded w-20 mb-1"></div>
-                          <div className="h-2 bg-gray-200 rounded w-16"></div>
-                        </div>
-                      </div>
-                      <div className="h-20 bg-green-100 rounded border-2 border-dashed border-green-300 flex items-center justify-center">
-                        <span className="text-green-600 text-sm">📸 Upload Crop Image</span>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-blue-50 rounded-lg p-3 text-center">
-                        <div className="text-xl mb-1">🌤️</div>
-                        <div className="text-xs text-gray-600">Weather</div>
-                      </div>
-                      <div className="bg-green-50 rounded-lg p-3 text-center">
-                        <div className="text-xl mb-1">💰</div>
-                        <div className="text-xs text-gray-600">Prices</div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex justify-center">
-                      <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm">
-                        Get AI Advice
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Status badge */}
-              <div className="absolute -top-2 -right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                Coming Soon
-              </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button href="/application" variant="primary" size="lg" className="flex items-center gap-2">
+                <Smartphone className="w-5 h-5" />
+                Try App Demo
+              </Button>
+              <Button href="https://t.me/KisanAIBot" variant="outline" size="lg" className="flex items-center gap-2">
+                Use on Telegram <ArrowRight className="w-4 h-4" />
+              </Button>
             </div>
           </div>
+
+          {/* Right Phone Mockup */}
+          <div className="flex-1 order-1 lg:order-2 w-full max-w-md mx-auto relative">
+            <div className="relative z-10 mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+              <div className="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+              <div className="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+              <div className="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+              <div className="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+              <div className="rounded-[2rem] overflow-hidden w-full h-full bg-white relative">
+                {/* App UI Mockup */}
+                <div className="bg-green-600 p-4 text-white pt-10">
+                  <div className="text-xs opacity-80">Good Morning,</div>
+                  <div className="text-xl font-bold">Ram Kumar</div>
+                </div>
+                <div className="p-4 space-y-4">
+                  <div className="bg-green-50 p-4 rounded-xl border border-green-100">
+                    <div className="text-sm text-green-800 font-semibold mb-2">Weather Update</div>
+                    <div className="flex items-center justify-between">
+                      <div className="text-3xl font-bold text-green-700">28°C</div>
+                      <div className="text-right">
+                        <div className="text-xs text-green-600">Sunny</div>
+                        <div className="text-xs text-green-600">H: 32° L: 24°</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-blue-50 p-3 rounded-xl text-center">
+                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 text-blue-600">
+                        <Smartphone className="w-5 h-5" />
+                      </div>
+                      <div className="text-xs font-bold text-blue-800">Scan Crop</div>
+                    </div>
+                    <div className="bg-amber-50 p-3 rounded-xl text-center">
+                      <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2 text-amber-600">
+                        <Smartphone className="w-5 h-5" />
+                      </div>
+                      <div className="text-xs font-bold text-amber-800">Mandi</div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-50 p-4 rounded-xl">
+                    <div className="text-sm font-bold text-gray-800 mb-2">Recent Activity</div>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3 p-2 bg-white rounded-lg shadow-sm">
+                        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-red-500">!</div>
+                        <div>
+                          <div className="text-xs font-bold">Tomato Blight</div>
+                          <div className="text-[10px] text-gray-500">Detected 2h ago</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Nav */}
+                <div className="absolute bottom-0 left-0 right-0 bg-white border-t p-3 flex justify-around">
+                  <div className="w-6 h-6 bg-green-100 rounded-full"></div>
+                  <div className="w-6 h-6 bg-gray-100 rounded-full"></div>
+                  <div className="w-6 h-6 bg-gray-100 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative blobs */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10 animation-delay-2000"></div>
+          </div>
+
         </div>
       </div>
     </section>
