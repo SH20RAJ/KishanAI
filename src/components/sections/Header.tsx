@@ -1,6 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 import { Button } from '../ui/Button';
-import { Wheat } from 'lucide-react';
 
 export const Header: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <img src="/logo.png" alt="KisanAI Logo" className="w-10 h-10 rounded-xl " />
+          <Image src="/logo.png" alt="KisanAI Logo" width={40} height={40} className="rounded-xl" />
           <div>
             <h1 className="text-xl font-bold text-gray-900">KisanAI</h1>
           </div>
