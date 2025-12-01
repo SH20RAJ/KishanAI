@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bell, User, Menu, Globe, ArrowLeft } from 'lucide-react';
+import Image from 'next/image';
 
 interface MobileHeaderProps {
   userName?: string;
@@ -48,7 +49,15 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             </button>
           )}
 
-          <h1 className="text-lg font-bold text-center flex-1 font-manrope">{title}</h1>
+          <div className="flex-1 flex justify-center">
+            <Image
+              src="/logo.png"
+              alt="KisanAI Logo"
+              width={120}
+              height={40}
+              className="h-8 w-auto object-contain"
+            />
+          </div>
 
           {rightElement ? (
             <div>{rightElement}</div>
@@ -115,8 +124,14 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         </div>
 
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center border-2 border-white/30">
-            <User size={24} className="text-white" />
+          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border-2 border-white overflow-hidden">
+            <Image
+              src="/logo.png"
+              alt="User"
+              width={48}
+              height={48}
+              className="w-full h-full object-cover p-1"
+            />
           </div>
           <div>
             <h2 className="text-lg font-bold font-manrope">नमस्ते, {userName}</h2>

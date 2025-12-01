@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
-                <Wheat className="w-5 h-5 text-white" />
+                <img src="/logo.png" alt="KisanAI Logo" className=" rounded-lg w-5 h-5 object-contain" />
               </div>
               <h4 className="text-xl font-bold">KisanAI</h4>
             </div>

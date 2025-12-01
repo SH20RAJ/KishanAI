@@ -1,15 +1,18 @@
 import React from 'react';
+import { LucideIcon } from 'lucide-react';
 
 interface BadgeProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'outline' | 'accent';
   className?: string;
+  icon?: LucideIcon;
 }
 
 export const Badge: React.FC<BadgeProps> = ({
   children,
   variant = 'primary',
-  className = ''
+  className = '',
+  icon: Icon
 }) => {
   const variants = {
     primary: "bg-[var(--secondary)] text-[var(--primary-dark)] border border-green-200",
@@ -19,7 +22,8 @@ export const Badge: React.FC<BadgeProps> = ({
   };
 
   return (
-    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${variants[variant]} ${className}`}>
+    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${variants[variant]} ${className}`}>
+      {Icon && <Icon size={14} />}
       {children}
     </span>
   );

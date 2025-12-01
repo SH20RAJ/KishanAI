@@ -8,9 +8,7 @@ export const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl flex items-center justify-center shadow-md">
-            <Wheat className="w-5 h-5 text-white" />
-          </div>
+          <img src="/logo.png" alt="KisanAI Logo" className="w-10 h-10 rounded-xl " />
           <div>
             <h1 className="text-xl font-bold text-gray-900">KisanAI</h1>
           </div>
