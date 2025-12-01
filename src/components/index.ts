@@ -11,6 +11,7 @@ export { Header } from './sections/Header';
 export { HeroSection } from './sections/HeroSection';
 export { StatsSection } from './sections/StatsSection';
 export { FeaturesSection } from './sections/FeaturesSection';
+export { AppShowcaseSection } from './sections/AppShowcaseSection';
 export { HowItWorksSection } from './sections/HowItWorksSection';
 export { MobileAppSection } from './sections/MobileAppSection';
 export { TechnologySection } from './sections/TechnologySection';
