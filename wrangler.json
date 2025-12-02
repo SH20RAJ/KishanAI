@@ -1,0 +1,18 @@
+{
+    "name": "agriguard",
+    "main": ".open-next/worker.js",
+    "compatibility_date": "2024-09-23",
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
+    "assets": {
+        "binding": "ASSETS",
+        "directory": ".open-next/assets"
+    },
+    "kv_namespaces": [
+        {
+            "binding": "NEXT_CACHE_WORKERS_KV",
+            "id": "852e82be3d2b4b8ba94e890265116b08"
+        }
+    ]
+}

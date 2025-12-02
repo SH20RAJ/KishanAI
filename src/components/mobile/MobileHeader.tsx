@@ -29,10 +29,10 @@ export const MobileHeader = () => {
 
         {/* Actions */}
         <div className="flex items-center gap-3">
-          <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors relative">
+          <Link href="/application/notifications" className="p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors relative">
             <Bell size={20} />
             <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
-          </button>
+          </Link>
         </div>
 
       </div>
