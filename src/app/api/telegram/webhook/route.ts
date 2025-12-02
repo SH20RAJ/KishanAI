@@ -158,38 +158,26 @@ async function handleStartCommand(chatId: number, user: TelegramUser) {
   userSessions.set(chatId, session);
 
   const welcomeMessage = `
-🌾 <b>Welcome to KisanAI!</b>
+🌾 <b>Namaste Kisan! Welcome to KisanAI</b> 🙏
 
-नमस्ते ${user.first_name}! I'm your AI-powered farming assistant.
+I am your personal AI farming assistant, here to help you grow better crops and earn more.
 
-🚀 <b>What I can help you with:</b>
+<b>Here is how I can help you:</b>
 
-📸 <b>Crop Disease Detection</b>
-Send me a photo of your crop and I'll identify diseases and suggest treatments.
+📸 <b>Crop Doctor</b>
+Send a photo of your sick crop, and I will tell you the disease and medicine.
 
-🤖 <b>Farming Advice</b>
-Ask me any farming question in your language.
+🌦️ <b>Weather Updates</b>
+Get accurate weather forecasts for your farm.
 
-🌦️ <b>Weather Forecast</b>
-Get weather updates and farming recommendations.
+💰 <b>Mandi Prices</b>
+Check today's market rates for your crops.
 
-💰 <b>Market Prices</b>
-Check live mandi prices for your crops.
+🗣️ <b>Voice Support</b>
+Just speak to me in your language! Send a voice note.
 
-📅 <b>Crop Calendar</b>
-Get personalized farming schedules.
-
-🏛️ <b>Government Schemes</b>
-Learn about agricultural schemes and subsidies.
-
-<b>Commands:</b>
-/help - Show all commands
-/language - Change language
-/weather - Weather forecast
-/prices - Market prices
-/schemes - Government schemes
-
-Just send me a photo or ask your question to get started! 🌱
+<b>Quick Actions:</b>
+👇 Tap a button below to start
   `;
 
   const keyboard = {
@@ -281,24 +269,20 @@ async function handleLanguageCommand(chatId: number) {
 async function handleWeatherCommand(chatId: number) {
   // Hardcoded weather data for demo
   const weatherMessage = `
-🌦️ <b>Weather Forecast for Your Area</b>
+🌦️ <b>Weather Forecast (New Delhi)</b>
 
-📍 <b>Location:</b> New Delhi, India
-🌡️ <b>Current:</b> 28°C, Partly Cloudy
-💧 <b>Humidity:</b> 65%
-💨 <b>Wind:</b> 12 km/h
+<b>Current Status:</b>
+🌡️ <b>Temp:</b> 28°C (Partly Cloudy)
+💧 <b>Humidity:</b> 65% | 💨 <b>Wind:</b> 12 km/h
 
-<b>Forecast:</b>
-📅 <b>Tomorrow:</b> 25°C, Light Rain Expected 🌧️
-📅 <b>Day After:</b> 30°C, Sunny ☀️
+<b>📅 Forecast:</b>
+• <b>Tomorrow:</b> 25°C, 🌧️ Light Rain
+• <b>Day After:</b> 30°C, ☀️ Sunny
 
-🌾 <b>Farming Recommendations:</b>
-• ✅ Good conditions for field work today
-• 🌧️ Prepare for rain tomorrow - check drainage
-• 💧 Reduce irrigation before rain
-• 🌱 Good time for sowing after rain
-
-💡 <b>Tip:</b> Monitor soil moisture after tomorrow's rain for optimal planting conditions.
+<b>🌾 Farmer Advisory:</b>
+✅ <b>Field Work:</b> Good conditions today.
+⚠️ <b>Alert:</b> Light rain expected tomorrow. Ensure drainage is clear.
+💧 <b>Irrigation:</b> Hold irrigation for now.
   `;
 
   await sendMessage(chatId, weatherMessage);
@@ -306,25 +290,20 @@ async function handleWeatherCommand(chatId: number) {
 
 async function handlePricesCommand(chatId: number) {
   const pricesMessage = `
-💰 <b>Live Mandi Prices</b>
-
-📊 <b>Today's Rates (₹/Quintal):</b>
+💰 <b>Mandi Rates (₹/Quintal)</b>
+<i>Updated: Today</i>
 
 🌾 <b>Wheat:</b> ₹2,150 - ₹2,200
 🌽 <b>Maize:</b> ₹1,800 - ₹1,850
 🍅 <b>Tomato:</b> ₹1,200 - ₹1,500
 🧅 <b>Onion:</b> ₹800 - ₹1,000
 🥔 <b>Potato:</b> ₹600 - ₹800
-🌶️ <b>Chili:</b> ₹8,000 - ₹10,000
 
-📈 <b>Market Trends:</b>
-• Wheat prices stable
-• Tomato prices rising due to weather
-• Good demand for onions
+📈 <b>Market Insight:</b>
+Tomato prices are rising 🔼. Good time to sell!
+Wheat prices are stable ➡️.
 
-💡 <b>Selling Tip:</b> Consider selling tomatoes now due to high demand.
-
-Want specific crop prices? Just ask: "What's the price of rice?" or "सोयाबीन का भाव क्या है?"
+💡 <i>Tip: You can ask me for specific crop prices like "Cotton price today".</i>
   `;
 
   await sendMessage(chatId, pricesMessage);
@@ -457,15 +436,16 @@ async function handleTextMessage(chatId: number, text: string, user: TelegramUse
   await sendMessage(chatId, '🤖 <b>Let me help you with that...</b>');
 
   const aiPrompt = `
-Farmer's question: "${text}"
+You are KisanAI, a helpful agricultural expert for Indian farmers.
+User Question: "${text}"
 
-Please provide a helpful response for an Indian farmer. Include:
-1. Direct answer to their question
-2. Practical steps they can take
-3. Any warnings or precautions
-4. Additional tips if relevant
+Please provide a response that is:
+1. **Encouraging & Respectful**: Start with a warm greeting (Namaste/Hello).
+2. **Simple & Clear**: Use easy-to-understand language. Avoid jargon.
+3. **Actionable**: Give step-by-step advice.
+4. **Localized**: Mention Indian context (fertilizers, seasons, units) if relevant.
 
-Keep the response concise but comprehensive, suitable for a farmer in India.
+Format the response with emojis and clear sections.
   `;
 
   const aiResponse = await callAI(aiPrompt, {
@@ -474,17 +454,10 @@ Keep the response concise but comprehensive, suitable for a farmer in India.
   });
 
   const formattedResponse = `
-🌾 <b>KisanAI Expert Advice</b>
-
 ${aiResponse}
 
-💡 <b>Need more help?</b>
-• Send a photo for disease detection
-• Ask about weather: /weather
-• Check market prices: /prices
-• Learn about schemes: /schemes
-
-Happy farming! 🌱
+-------------------
+<i>Type /help for more options.</i>
   `;
 
   await sendMessage(chatId, formattedResponse);
