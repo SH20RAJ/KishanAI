@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { callOpenRouterAPI } from '@/lib/ai';
 
 // Telegram Bot API types
 interface TelegramUpdate {
@@ -56,7 +57,7 @@ interface TelegramCallbackQuery {
 
 // Bot configuration
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const OPENROUTER_API_KEY = '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';
+
 
 // Language mappings
 const LANGUAGE_NAMES: { [key: string]: string } = {
@@ -88,7 +89,7 @@ const userSessions = new Map<number, {
 // Telegram API helper functions
 async function sendMessage(chatId: number, text: string, options?: any) {
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-  
+
   const payload = {
     chat_id: chatId,
     text: text,
@@ -108,7 +109,7 @@ async function sendMessage(chatId: number, text: string, options?: any) {
     if (!response.ok) {
       console.error('Failed to send message:', await response.text());
     }
-    
+
     return await response.json();
   } catch (error) {
     console.error('Error sending message:', error);
@@ -117,7 +118,7 @@ async function sendMessage(chatId: number, text: string, options?: any) {
 
 async function sendPhoto(chatId: number, photo: string, caption?: string) {
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`;
-  
+
   const payload = {
     chat_id: chatId,
     photo: photo,
@@ -140,45 +141,7 @@ async function sendPhoto(chatId: number, photo: string, caption?: string) {
   }
 }
 
-// OpenRouter AI helper
-async function callOpenRouterAPI(prompt: string, model: string = 'anthropic/claude-3.5-sonnet') {
-  try {
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://kisanai.in',
-        'X-Title': 'KisanAI Telegram Bot'
-      },
-      body: JSON.stringify({
-        model: model,
-        messages: [
-          {
-            role: 'system',
-            content: 'You are KisanAI, an expert agricultural assistant for Indian farmers. Provide practical, actionable advice in simple language. Focus on crop management, disease prevention, weather-based recommendations, and sustainable farming practices suitable for Indian conditions.'
-          },
-          {
-            role: 'user',
-            content: prompt
-          }
-        ],
-        max_tokens: 1000,
-        temperature: 0.7
-      })
-    });
 
-    if (!response.ok) {
-      throw new Error(`OpenRouter API error: ${response.status}`);
-    }
-
-    const data = await response.json() as any;
-    return data.choices?.[0]?.message?.content || 'Sorry, I could not process your request.';
-  } catch (error) {
-    console.error('OpenRouter API error:', error);
-    return 'Sorry, I am experiencing technical difficulties. Please try again later.';
-  }
-}
 
 // Command handlers
 async function handleStartCommand(chatId: number, user: TelegramUser) {
@@ -292,7 +255,7 @@ async function handleLanguageCommand(chatId: number) {
 
 async function handleWeatherCommand(chatId: number) {
   const session = userSessions.get(chatId);
-  
+
   if (!session?.location) {
     await sendMessage(chatId, `
 🌦️ <b>Weather Forecast</b>
@@ -395,7 +358,7 @@ async function handlePhotoMessage(chatId: number, photos: TelegramPhotoSize[]) {
   await sendMessage(chatId, '🔍 <b>Analyzing your crop image...</b>\n\nPlease wait while I examine the photo for any diseases or issues.');
 
   // Get the largest photo
-  const largestPhoto = photos.reduce((prev, current) => 
+  const largestPhoto = photos.reduce((prev, current) =>
     (prev.file_size || 0) > (current.file_size || 0) ? prev : current
   );
 
@@ -436,7 +399,7 @@ async function handlePhotoMessage(chatId: number, photos: TelegramPhotoSize[]) {
 
 async function handleTextMessage(chatId: number, text: string, user: TelegramUser) {
   const session = userSessions.get(chatId) || { language: 'en', lastActivity: new Date() };
-  
+
   // Update last activity
   session.lastActivity = new Date();
   userSessions.set(chatId, session);
@@ -469,7 +432,7 @@ Keep the response concise but comprehensive, suitable for a farmer in India.
   `;
 
   const aiResponse = await callOpenRouterAPI(aiPrompt);
-  
+
   const formattedResponse = `
 🌾 <b>KisanAI Expert Advice</b>
 
@@ -517,7 +480,7 @@ export async function POST(request: NextRequest) {
       // Handle commands
       if (message.text?.startsWith('/')) {
         const command = message.text.split(' ')[0].toLowerCase();
-        
+
         switch (command) {
           case '/start':
             await handleStartCommand(chatId, user);
@@ -557,7 +520,7 @@ export async function POST(request: NextRequest) {
           lon: message.location.longitude
         };
         userSessions.set(chatId, session);
-        
+
         await sendMessage(chatId, '📍 Location saved! Now I can provide accurate weather forecasts and local information.');
         await handleWeatherCommand(chatId);
       }
@@ -576,7 +539,7 @@ export async function POST(request: NextRequest) {
 
 // Handle GET requests (for webhook verification)
 export async function GET() {
-  return NextResponse.json({ 
+  return NextResponse.json({
     status: 'KisanAI Telegram Bot Webhook Active',
     timestamp: new Date().toISOString()
   });
