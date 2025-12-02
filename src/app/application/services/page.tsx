@@ -11,7 +11,7 @@ const services = [
         icon: CloudSun,
         color: 'text-blue-600',
         bg: 'bg-blue-50',
-        href: '#'
+        href: '/application/services/weather'
     },
     {
         title: 'Soil Health Card',
@@ -19,7 +19,7 @@ const services = [
         icon: Sprout,
         color: 'text-green-600',
         bg: 'bg-green-50',
-        href: '#'
+        href: '/application/services/soil-health'
     },
     {
         title: 'Govt Schemes',
@@ -27,7 +27,7 @@ const services = [
         icon: Landmark,
         color: 'text-orange-600',
         bg: 'bg-orange-50',
-        href: '#'
+        href: '/application/services/schemes'
     },
     {
         title: 'Crop Advisory',
@@ -35,7 +35,7 @@ const services = [
         icon: BookOpen,
         color: 'text-purple-600',
         bg: 'bg-purple-50',
-        href: '#'
+        href: '/application/services/advisory'
     },
     {
         title: 'Kisan Call Center',
@@ -43,7 +43,7 @@ const services = [
         icon: Phone,
         color: 'text-red-600',
         bg: 'bg-red-50',
-        href: '#'
+        href: '/application/services/call-center'
     },
     {
         title: 'Fertilizer Calc',
@@ -51,7 +51,7 @@ const services = [
         icon: Calculator,
         color: 'text-teal-600',
         bg: 'bg-teal-50',
-        href: '#'
+        href: '/application/services/fertilizer-calc'
     },
     {
         title: 'Mandi Prices',
@@ -67,7 +67,7 @@ const services = [
         icon: FileText,
         color: 'text-indigo-600',
         bg: 'bg-indigo-50',
-        href: '#'
+        href: '/application/services/insurance'
     }
 ];
 
