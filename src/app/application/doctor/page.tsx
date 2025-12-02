@@ -19,15 +19,16 @@ export default function CropDoctorPage() {
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                setImage(reader.result as string);
-                analyzeImage();
+                const imageData = reader.result as string;
+                setImage(imageData);
+                analyzeImage(imageData);
             };
             reader.readAsDataURL(file);
         }
     };
 
-    const analyzeImage = async () => {
-        if (!image) return;
+    const analyzeImage = async (imageData: string) => {
+        if (!imageData) return;
 
         setAnalyzing(true);
         try {
@@ -36,7 +37,7 @@ export default function CropDoctorPage() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ image }),
+                body: JSON.stringify({ image: imageData }),
             });
 
             if (!response.ok) {

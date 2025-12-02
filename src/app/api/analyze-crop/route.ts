@@ -7,7 +7,9 @@ const openai = new OpenAI({
 
 export async function POST(req: Request) {
     try {
+        console.log('Received crop analysis request');
         const { image } = await req.json() as { image: string };
+        console.log('Image received, length:', image?.length);
 
         if (!image) {
             return NextResponse.json(
@@ -40,7 +42,9 @@ export async function POST(req: Request) {
             max_tokens: 300,
         });
 
+        console.log('OpenAI response received');
         const result = JSON.parse(response.choices[0].message.content || "{}");
+        console.log('Parsed result:', result);
         return NextResponse.json(result);
 
     } catch (error) {
