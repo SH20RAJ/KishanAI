@@ -8,7 +8,8 @@ import {
   MobileAppSection,
   TechnologySection,
   CTASection,
-  Footer
+  Footer,
+  VideoSection
 } from '@/components';
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <main className="relative z-10 pt-16">
         <HeroSection />
         <StatsSection />
+        <VideoSection />
         <FeaturesSection />
         <AppShowcaseSection /> {/* Rendered AppShowcaseSection */}
         <HowItWorksSection />

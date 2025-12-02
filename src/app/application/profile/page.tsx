@@ -1,14 +1,18 @@
 'use client';
 
 import React from 'react';
-import { User, MapPin, Settings, Phone, FileText, LogOut, ChevronRight, Languages, Shield } from 'lucide-react';
+import { User, MapPin, Settings, Phone, FileText, LogOut, ChevronRight, Languages, Shield, X } from 'lucide-react';
+import { useState } from 'react';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 
 export default function ProfilePage() {
+    const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
+
     const menuItems = [
         { icon: User, label: 'Edit Profile', href: '#' },
-        { icon: Languages, label: 'Change Language', href: '#', value: 'English' },
+        { icon: Languages, label: 'Change Language', href: '#', value: 'English', onClick: () => setIsLanguageModalOpen(true) },
         { icon: FileText, label: 'My Orders', href: '#' },
         { icon: Shield, label: 'Privacy & Security', href: '#' },
         { icon: Phone, label: 'Help & Support', href: '#' },
@@ -62,6 +66,7 @@ export default function ProfilePage() {
                     return (
                         <button
                             key={index}
+                            onClick={item.onClick}
                             className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-none"
                         >
                             <div className="flex items-center gap-3">
@@ -78,6 +83,37 @@ export default function ProfilePage() {
                     );
                 })}
             </div>
+
+            {/* Language Modal */}
+            {isLanguageModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white rounded-3xl w-full max-w-sm p-6 relative shadow-xl">
+                        <button
+                            onClick={() => setIsLanguageModalOpen(false)}
+                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+                        >
+                            <X size={24} />
+                        </button>
+
+                        <div className="text-center mb-6">
+                            <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3 text-green-600">
+                                <Languages size={24} />
+                            </div>
+                            <h2 className="text-xl font-bold text-gray-900">Select Language</h2>
+                            <p className="text-sm text-gray-500">Choose your preferred language</p>
+                        </div>
+
+                        <LanguageSwitcher />
+
+                        <Button
+                            onClick={() => setIsLanguageModalOpen(false)}
+                            className="w-full mt-6"
+                        >
+                            Done
+                        </Button>
+                    </div>
+                </div>
+            )}
 
             {/* Logout Button */}
             <Button variant="outline" className="w-full border-red-100 text-red-600 hover:bg-red-50 hover:text-red-700">
