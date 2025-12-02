@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { callAI } from '@/lib/ai';
+import { callAI, transcribeAudio } from '@/lib/ai';
 
 // Telegram Bot API types
 interface TelegramUpdate {
@@ -16,6 +16,15 @@ interface TelegramMessage {
   text?: string;
   photo?: TelegramPhotoSize[];
   location?: TelegramLocation;
+  voice?: TelegramVoice;
+}
+
+interface TelegramVoice {
+  file_id: string;
+  file_unique_id: string;
+  duration: number;
+  mime_type?: string;
+  file_size?: number;
 }
 
 interface TelegramUser {
@@ -357,7 +366,7 @@ Need help with specific scheme? Ask me: "How to apply for PM-KISAN?" or "ट्�
   await sendMessage(chatId, schemesMessage);
 }
 
-async function handlePhotoMessage(chatId: number, photos: TelegramPhotoSize[]) {
+async function handlePhotoMessage(chatId: number, photos: TelegramPhotoSize[], caption?: string) {
   await sendMessage(chatId, '🔍 <b>Analyzing your crop image...</b>\n\nPlease wait while I examine the photo for any diseases or issues.');
 
   // Get the largest photo
@@ -365,39 +374,64 @@ async function handlePhotoMessage(chatId: number, photos: TelegramPhotoSize[]) {
     (prev.file_size || 0) > (current.file_size || 0) ? prev : current
   );
 
-  // Mock disease detection (in production, use actual AI vision model)
-  setTimeout(async () => {
-    const diseaseReport = `
-🔬 <b>Crop Analysis Report</b>
+  try {
+    // Get file path from Telegram
+    const fileResponse = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getFile?file_id=${largestPhoto.file_id}`);
+    const fileData = await fileResponse.json() as any;
 
-📸 <b>Image Analysis Complete</b>
+    if (!fileData.ok) throw new Error('Failed to get file path');
 
-🦠 <b>Disease Detected:</b> Leaf Blight
-📊 <b>Confidence:</b> 87%
-🌱 <b>Crop:</b> Tomato (detected)
+    const filePath = fileData.result.file_path;
+    const imageUrl = `https://api.telegram.org/file/bot${TELEGRAM_BOT_TOKEN}/${filePath}`;
 
-💊 <b>Treatment Recommendations:</b>
-• Apply copper-based fungicide
-• Remove affected leaves immediately
-• Improve air circulation
-• Reduce overhead watering
+    const session = userSessions.get(chatId) || { language: 'en', lastActivity: new Date() };
 
-🛡️ <b>Prevention Tips:</b>
-• Regular field monitoring
-• Proper plant spacing
-• Avoid watering leaves directly
-• Use disease-resistant varieties
+    const prompt = caption || "Analyze this crop image. Identify any diseases, pests, or nutritional deficiencies. Provide treatment recommendations and prevention tips.";
 
-📅 <b>Follow-up:</b>
-• Monitor for 7-10 days
-• Reapply treatment if needed
-• Contact local agriculture extension officer
+    const aiResponse = await callAI(prompt, {
+      imageUrl: imageUrl,
+      language: session.language,
+      model: 'gpt-4o'
+    });
 
-❓ <b>Need more help?</b> Ask me: "How to apply copper fungicide?" or "कॉपर फंगीसाइड कैसे डालें?"
-    `;
+    await sendMessage(chatId, `🔬 <b>Analysis Report</b>\n\n${aiResponse}`);
 
-    await sendMessage(chatId, diseaseReport);
-  }, 3000);
+  } catch (error) {
+    console.error('Error analyzing photo:', error);
+    await sendMessage(chatId, '❌ Sorry, I could not analyze the image. Please try again.');
+  }
+}
+
+async function handleVoiceMessage(chatId: number, voice: TelegramVoice) {
+  await sendMessage(chatId, '🎤 <b>Listening...</b>');
+
+  try {
+    // Get file path
+    const fileResponse = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getFile?file_id=${voice.file_id}`);
+    const fileData = await fileResponse.json() as any;
+
+    if (!fileData.ok) throw new Error('Failed to get file path');
+
+    const filePath = fileData.result.file_path;
+    const fileUrl = `https://api.telegram.org/file/bot${TELEGRAM_BOT_TOKEN}/${filePath}`;
+
+    // Download file
+    const audioResponse = await fetch(fileUrl);
+    const audioBlob = await audioResponse.blob();
+
+    // Transcribe
+    const transcription = await transcribeAudio(audioBlob as any); // Cast to any because File/Blob types might mismatch with OpenAI SDK expectation in this context
+
+    await sendMessage(chatId, `📝 <b>You said:</b> "${transcription}"`);
+
+    // Process as text message
+    const session = userSessions.get(chatId) || { language: 'en', lastActivity: new Date() };
+    await handleTextMessage(chatId, transcription, { id: chatId, is_bot: false, first_name: 'User' } as TelegramUser);
+
+  } catch (error) {
+    console.error('Error processing voice:', error);
+    await sendMessage(chatId, '❌ Sorry, I could not process your voice message. Please try again.');
+  }
 }
 
 async function handleTextMessage(chatId: number, text: string, user: TelegramUser) {
@@ -434,7 +468,10 @@ Please provide a helpful response for an Indian farmer. Include:
 Keep the response concise but comprehensive, suitable for a farmer in India.
   `;
 
-  const aiResponse = await callAI(aiPrompt);
+  const aiResponse = await callAI(aiPrompt, {
+    language: session.language,
+    model: 'gpt-4o'
+  });
 
   const formattedResponse = `
 🌾 <b>KisanAI Expert Advice</b>
@@ -519,7 +556,11 @@ export async function POST(request: NextRequest) {
       }
       // Handle photo messages
       else if (message.photo) {
-        await handlePhotoMessage(chatId, message.photo);
+        await handlePhotoMessage(chatId, message.photo, message.text); // message.text might be caption
+      }
+      // Handle voice messages
+      else if (message.voice) {
+        await handleVoiceMessage(chatId, message.voice);
       }
       // Handle text messages
       else if (message.text) {
