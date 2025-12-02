@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { callOpenRouterAPI } from '@/lib/ai';
+import { callAI } from '@/lib/ai';
 
 export async function POST(request: NextRequest) {
     try {
@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Prompt is required' }, { status: 400 });
         }
 
-        const response = await callOpenRouterAPI(prompt);
+        const response = await callAI(prompt);
 
         return NextResponse.json({ response });
     } catch (error) {

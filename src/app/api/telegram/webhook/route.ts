@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { callOpenRouterAPI } from '@/lib/ai';
+import { callAI } from '@/lib/ai';
 
 // Telegram Bot API types
 interface TelegramUpdate {
@@ -183,7 +183,23 @@ Learn about agricultural schemes and subsidies.
 Just send me a photo or ask your question to get started! 🌱
   `;
 
-  await sendMessage(chatId, welcomeMessage);
+  const keyboard = {
+    inline_keyboard: [
+      [
+        { text: '📸 Detect Disease', callback_data: 'detect_disease' },
+        { text: '🌦️ Weather', callback_data: 'weather' }
+      ],
+      [
+        { text: '💰 Market Prices', callback_data: 'prices' },
+        { text: '🏛️ Schemes', callback_data: 'schemes' }
+      ],
+      [
+        { text: '🗣️ Change Language', callback_data: 'language' }
+      ]
+    ]
+  };
+
+  await sendMessage(chatId, welcomeMessage, { reply_markup: keyboard });
 }
 
 async function handleHelpCommand(chatId: number) {
@@ -254,31 +270,18 @@ async function handleLanguageCommand(chatId: number) {
 }
 
 async function handleWeatherCommand(chatId: number) {
-  const session = userSessions.get(chatId);
-
-  if (!session?.location) {
-    await sendMessage(chatId, `
-🌦️ <b>Weather Forecast</b>
-
-Please share your location first to get accurate weather information.
-
-You can:
-1. Send your location using the 📎 attachment button
-2. Type your city name (e.g., "Delhi", "Mumbai")
-
-This will help me provide weather forecasts and farming recommendations specific to your area.
-    `);
-    return;
-  }
-
-  // Mock weather data (in production, integrate with weather API)
+  // Hardcoded weather data for demo
   const weatherMessage = `
-🌦️ <b>Weather Forecast</b>
+🌦️ <b>Weather Forecast for Your Area</b>
 
-📍 <b>Your Location</b>
-🌡️ <b>Today:</b> 28°C, Partly Cloudy
-🌡️ <b>Tomorrow:</b> 25°C, Light Rain Expected
-🌡️ <b>Day After:</b> 30°C, Sunny
+📍 <b>Location:</b> New Delhi, India
+🌡️ <b>Current:</b> 28°C, Partly Cloudy
+💧 <b>Humidity:</b> 65%
+💨 <b>Wind:</b> 12 km/h
+
+<b>Forecast:</b>
+📅 <b>Tomorrow:</b> 25°C, Light Rain Expected 🌧️
+📅 <b>Day After:</b> 30°C, Sunny ☀️
 
 🌾 <b>Farming Recommendations:</b>
 • ✅ Good conditions for field work today
@@ -431,7 +434,7 @@ Please provide a helpful response for an Indian farmer. Include:
 Keep the response concise but comprehensive, suitable for a farmer in India.
   `;
 
-  const aiResponse = await callOpenRouterAPI(aiPrompt);
+  const aiResponse = await callAI(aiPrompt);
 
   const formattedResponse = `
 🌾 <b>KisanAI Expert Advice</b>
@@ -464,6 +467,16 @@ async function handleCallbackQuery(callbackQuery: TelegramCallbackQuery) {
 
     const languageName = LANGUAGE_NAMES[langCode] || 'English';
     await sendMessage(chatId, `✅ Language changed to ${languageName}\n\nYou can now ask questions in your preferred language!`);
+  } else if (data === 'weather') {
+    await handleWeatherCommand(chatId);
+  } else if (data === 'prices') {
+    await handlePricesCommand(chatId);
+  } else if (data === 'schemes') {
+    await handleSchemesCommand(chatId);
+  } else if (data === 'detect_disease') {
+    await sendMessage(chatId, '📸 Please send a photo of your crop to detect diseases.');
+  } else if (data === 'language') {
+    await handleLanguageCommand(chatId);
   }
 }
 
