@@ -18,7 +18,7 @@ export default function VideoSection() {
                 <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
                     <div className="relative pb-[56.25%] h-0">
                         <iframe
-                            src="https://www.youtube.com/embed/LZD7YKC1HTs"
+                            src="https://www.youtube.com/embed/LZD7YKC1HTs?list=PLfAV8wPWROFDxE-8GvjT4yenYggxj2uMR&index=1"
                             title="KisanAI Pitch Video"
                             className="absolute top-0 left-0 w-full h-full"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

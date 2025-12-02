@@ -365,7 +365,16 @@ async function handlePhotoMessage(chatId: number, photos: TelegramPhotoSize[], c
 
     const session = userSessions.get(chatId) || { language: 'en', lastActivity: new Date() };
 
-    const prompt = caption || "Analyze this crop image. Identify any diseases, pests, or nutritional deficiencies. Provide treatment recommendations and prevention tips.";
+    const prompt = caption || `Analyze this crop image. Identify any diseases, pests, or nutritional deficiencies. 
+    
+    Provide a structured report with the following sections:
+    1. <b>Disease/Issue</b>: Name of the disease or 'Healthy'.
+    2. <b>Confidence</b>: High/Medium/Low.
+    3. <b>Severity</b>: High/Medium/Low.
+    4. <b>Treatment</b>: Actionable steps to cure or manage the issue.
+    5. <b>Prevention</b>: Tips to prevent future occurrence.
+
+    Format the response using HTML tags supported by Telegram (<b>, <i>, etc.). Do not use Markdown.`;
 
     const aiResponse = await callAI(prompt, {
       imageUrl: imageUrl,
