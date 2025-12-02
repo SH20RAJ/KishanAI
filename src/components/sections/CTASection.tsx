@@ -20,7 +20,7 @@ export const CTASection: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              href="https://t.me/KisanAIBot"
+              href="https://t.me/Kishan_aibot"
               variant="accent"
               size="lg"
               className="flex items-center gap-2 shadow-xl"
@@ -46,7 +46,7 @@ export const CTASection: React.FC = () => {
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 lg:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
         <div className="flex gap-3">
           <Button
-            href="https://t.me/KisanAIBot"
+            href="https://t.me/Kishan_aibot"
             variant="primary"
             className="flex-1 text-sm py-3"
           >

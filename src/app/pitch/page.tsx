@@ -1,13 +1,13 @@
 import React from 'react';
 import { Header, Footer } from '@/components';
-import { 
-  Smartphone, 
-  Users, 
-  Globe, 
-  TrendingUp, 
-  Shield, 
-  Zap, 
-  CheckCircle, 
+import {
+  Smartphone,
+  Users,
+  Globe,
+  TrendingUp,
+  Shield,
+  Zap,
+  CheckCircle,
   BarChart3,
   MapPin,
   Clock,
@@ -21,7 +21,7 @@ export default function PitchPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-gray-50">
       <Header />
-      
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-16 text-center">
@@ -30,7 +30,7 @@ export default function PitchPage() {
               <Award className="w-4 h-4" />
               Investor & Stakeholder Pitch
             </div>
-            
+
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               <span className="text-gray-900">Why </span>
               <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
@@ -38,9 +38,9 @@ export default function PitchPage() {
               </span>
               <span className="text-gray-900"> Will Use KisanAI</span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Data-backed answers to every skeptical question about farmer adoption, 
+              Data-backed answers to every skeptical question about farmer adoption,
               technology penetration, and market viability in rural India
             </p>
           </div>
@@ -58,7 +58,7 @@ export default function PitchPage() {
           </div>
 
           <div className="space-y-16">
-            
+
             {/* Question 1: Phone Usage */}
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
               <div className="flex items-start gap-6">
@@ -69,7 +69,7 @@ export default function PitchPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     "How will farmers use phones? Do they even have smartphones?"
                   </h3>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">📊 The Reality (2024 Data)</h4>
@@ -92,7 +92,7 @@ export default function PitchPage() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">🎯 Our Solution</h4>
                       <ul className="space-y-2 text-gray-600">
@@ -115,10 +115,10 @@ export default function PitchPage() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-4 bg-green-50 rounded-lg">
                     <p className="text-sm text-green-800">
-                      <strong>Source:</strong> Telecom Regulatory Authority of India (TRAI) 2024, 
+                      <strong>Source:</strong> Telecom Regulatory Authority of India (TRAI) 2024,
                       Internet and Mobile Association of India (IAMAI) Rural Internet Report 2024
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export default function PitchPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     "What about illiterate farmers? How will they use technology?"
                   </h3>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">📊 Literacy Reality</h4>
@@ -159,7 +159,7 @@ export default function PitchPage() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">🎯 Voice-First Design</h4>
                       <ul className="space-y-2 text-gray-600">
@@ -182,10 +182,10 @@ export default function PitchPage() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-4 bg-orange-50 rounded-lg">
                     <p className="text-sm text-orange-800">
-                      <strong>Key Insight:</strong> Voice technology adoption in rural India is 3x faster than text-based apps. 
+                      <strong>Key Insight:</strong> Voice technology adoption in rural India is 3x faster than text-based apps.
                       Farmers who can't read are already using voice messages on WhatsApp daily.
                     </p>
                   </div>
@@ -203,7 +203,7 @@ export default function PitchPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     "What about poor internet and expensive data costs?"
                   </h3>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">📊 Connectivity Reality</h4>
@@ -226,7 +226,7 @@ export default function PitchPage() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">🎯 Optimized for Rural</h4>
                       <ul className="space-y-2 text-gray-600">
@@ -249,10 +249,10 @@ export default function PitchPage() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                     <p className="text-sm text-blue-800">
-                      <strong>Cost Analysis:</strong> Using KisanAI costs farmers less than ₹10/month in data charges, 
+                      <strong>Cost Analysis:</strong> Using KisanAI costs farmers less than ₹10/month in data charges,
                       while potentially saving ₹5,000+ annually through better crop management.
                     </p>
                   </div>
@@ -270,7 +270,7 @@ export default function PitchPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     "How many farmers will actually use your app?"
                   </h3>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">📊 Market Size</h4>
@@ -293,7 +293,7 @@ export default function PitchPage() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">🎯 Adoption Strategy</h4>
                       <ul className="space-y-2 text-gray-600">
@@ -316,10 +316,10 @@ export default function PitchPage() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-4 bg-purple-50 rounded-lg">
                     <p className="text-sm text-purple-800">
-                      <strong>Proven Demand:</strong> Existing agricultural apps like Plantix have 10M+ users despite limited features. 
+                      <strong>Proven Demand:</strong> Existing agricultural apps like Plantix have 10M+ users despite limited features.
                       KisanAI's comprehensive solution addresses all major pain points.
                     </p>
                   </div>
@@ -337,7 +337,7 @@ export default function PitchPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     "How will you make money without charging farmers?"
                   </h3>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">📊 Revenue Potential</h4>
@@ -360,7 +360,7 @@ export default function PitchPage() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">🎯 Revenue Streams</h4>
                       <ul className="space-y-2 text-gray-600">
@@ -383,10 +383,10 @@ export default function PitchPage() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-4 bg-green-50 rounded-lg">
                     <p className="text-sm text-green-800">
-                      <strong>Profitability Timeline:</strong> Break-even at 5M users (18-24 months), 
+                      <strong>Profitability Timeline:</strong> Break-even at 5M users (18-24 months),
                       with multiple revenue streams reducing dependency on farmer payments.
                     </p>
                   </div>
@@ -404,7 +404,7 @@ export default function PitchPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     "How will you compete with Google, Microsoft, and big tech?"
                   </h3>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">📊 Competitive Landscape</h4>
@@ -427,7 +427,7 @@ export default function PitchPage() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-lg font-semibold text-gray-800 mb-3">🎯 Our Advantages</h4>
                       <ul className="space-y-2 text-gray-600">
@@ -450,10 +450,10 @@ export default function PitchPage() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-4 bg-red-50 rounded-lg">
                     <p className="text-sm text-red-800">
-                      <strong>First-Mover Advantage:</strong> We're the first Telegram-based agricultural AI assistant. 
+                      <strong>First-Mover Advantage:</strong> We're the first Telegram-based agricultural AI assistant.
                       By the time big tech adapts, we'll have millions of farmers and strong network effects.
                     </p>
                   </div>
@@ -473,7 +473,7 @@ export default function PitchPage() {
                 Conservative estimates based on current agricultural technology adoption rates
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
                 <div className="text-4xl font-bold text-yellow-300 mb-2">10M+</div>
@@ -504,16 +504,16 @@ export default function PitchPage() {
             <p className="text-xl text-gray-600 mb-8">
               Join us in empowering 100+ million farmers with AI-powered agricultural assistance
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://t.me/KisanAIBot" 
+              <a
+                href="https://t.me/Kishan_aibot"
                 className="bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors"
               >
                 Try Live Demo
               </a>
-              <a 
-                href="mailto:partnerships@kisanai.in" 
+              <a
+                href="mailto:partnerships@kisanai.in"
                 className="border border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
                 Partner With Us
@@ -523,7 +523,7 @@ export default function PitchPage() {
         </section>
 
       </main>
-      
+
       <Footer />
     </div>
   );

@@ -7,11 +7,11 @@
 **Empowering 100+ million Indian farmers with AI-driven agricultural solutions**
 
 [![YUKTI 2025](https://img.shields.io/badge/YUKTI-AICTE%202025-green)](https://yukti.aicte-india.org)
-[![Telegram Bot](https://img.shields.io/badge/Telegram-@KisanAIBot-blue)](https://t.me/KisanAIBot)
+[![Telegram Bot](https://img.shields.io/badge/Telegram-@KisanAIBot-blue)](https://t.me/Kishan_aibot)
 [![Made in India](https://img.shields.io/badge/Made%20in-India%20🇮🇳-orange)](https://github.com/kisanai/kisanai)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-[🚀 Live Demo](https://kishanai.shaswat.live) • [📱 Try Telegram Bot](https://t.me/KisanAIBot) • [📚 Documentation](docs/) • [❓ FAQ](FAQ.md)
+[🚀 Live Demo](https://kishanai.shaswat.live) • [📱 Try Telegram Bot](https://t.me/Kishan_aibot) • [📚 Documentation](docs/) • [❓ FAQ](FAQ.md)
 
 </div>
 
@@ -45,7 +45,7 @@ KisanAI is India's first comprehensive AI-powered agricultural assistant that wo
 
 ### For Farmers
 1. Open Telegram on your mobile
-2. Search `@KisanAIBot` or [Click Here](https://t.me/KisanAIBot)
+2. Search `@KisanAIBot` or [Click Here](https://t.me/Kishan_aibot)
 3. Send `/start` to begin
 4. Upload crop photos or ask questions in your language
 5. Get instant AI-powered agricultural advice!
@@ -212,7 +212,7 @@ Comprehensive documentation is available in the `/docs` folder:
 - **🔧 Technical**: tech@kisanai.in
 
 ### **Social Media**
-- **📱 Telegram**: [@KisanAIBot](https://t.me/KisanAIBot)
+- **📱 Telegram**: [@KisanAIBot](https://t.me/Kishan_aibot)
 - **🐦 Twitter**: [@KisanAI_India](https://twitter.com/KisanAI_India)
 - **💼 LinkedIn**: [/company/kisanai](https://linkedin.com/company/kisanai)
 - **📘 Facebook**: [/KisanAIIndia](https://facebook.com/KisanAIIndia)
@@ -251,6 +251,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **🏆 YUKTI AICTE Hackathon 2025 | Transforming Agriculture with AI**
 
-[🚀 Try Now](https://t.me/KisanAIBot) | [📖 Learn More](docs/) | [❓ FAQ](FAQ.md) | [🤝 Contribute](docs/contributing.md)
+[🚀 Try Now](https://t.me/Kishan_aibot) | [📖 Learn More](docs/) | [❓ FAQ](FAQ.md) | [🤝 Contribute](docs/contributing.md)
 
 </div>

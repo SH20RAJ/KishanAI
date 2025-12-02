@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h5 className="font-semibold mb-4">Features</h5>
             <ul className="space-y-2 text-gray-400">
@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
               <li><a href="#" className="hover:text-white transition-colors">Crop Calendar</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h5 className="font-semibold mb-4">Support</h5>
             <ul className="space-y-2 text-gray-400">
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
               <li><a href="#" className="hover:text-white transition-colors">API Access</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h5 className="font-semibold mb-4">Connect</h5>
             <ul className="space-y-2 text-gray-400">
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <a href="https://t.me/KisanAIBot" className="hover:text-white transition-colors">@KisanAIBot</a>
+                <a href="https://t.me/Kishan_aibot" className="hover:text-white transition-colors">@KisanAIBot</a>
               </li>
               <li className="flex items-center gap-2">
                 <Globe className="w-4 h-4" />
@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             &copy; 2025 KisanAI. Built for Indian Farmers. YUKTI AICTE Hackathon 2025.

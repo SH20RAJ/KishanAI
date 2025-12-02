@@ -31,7 +31,7 @@ export const HeroSection: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button href="https://t.me/KisanAIBot" variant="primary" size="lg" className="flex items-center gap-2 shadow-lg shadow-green-200">
+              <Button href="https://t.me/Kishan_aibot" variant="primary" size="lg" className="flex items-center gap-2 shadow-lg shadow-green-200">
                 Start Telegram Bot <ArrowRight className="w-4 h-4" />
               </Button>
               <Button href="/application" variant="outline" size="lg">

@@ -279,7 +279,7 @@ Special thanks to all contributors who helped create this comprehensive document
 
 ## 🌾 **Ready to Transform Agriculture with AI?**
 
-**[🚀 Get Started](../README.md)** | **[🤖 Try Telegram Bot](https://t.me/KisanAIBot)** | **[🤝 Contribute](contributing.md)** | **[❓ Ask Questions](../FAQ.md)**
+**[🚀 Get Started](../README.md)** | **[🤖 Try Telegram Bot](https://t.me/Kishan_aibot)** | **[🤝 Contribute](contributing.md)** | **[❓ Ask Questions](../FAQ.md)**
 
 ---
 

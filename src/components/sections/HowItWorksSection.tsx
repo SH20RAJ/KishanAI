@@ -33,7 +33,7 @@ export const HowItWorksSection: React.FC = () => {
             Simple 3-step process to get expert farming advice
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <StepCard
@@ -45,16 +45,16 @@ export const HowItWorksSection: React.FC = () => {
             />
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="https://t.me/KisanAIBot"
+            <a
+              href="https://t.me/Kishan_aibot"
               className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
             >
               Try KisanAI Bot
             </a>
-            <a 
+            <a
               href="/application"
               className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
             >

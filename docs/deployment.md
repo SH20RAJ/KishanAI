@@ -229,7 +229,7 @@ Create `vercel.json` in root directory:
   "redirects": [
     {
       "source": "/telegram",
-      "destination": "https://t.me/KisanAIBot",
+      "destination": "https://t.me/Kishan_aibot",
       "permanent": true
     },
     {

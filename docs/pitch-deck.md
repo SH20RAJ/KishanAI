@@ -354,7 +354,7 @@
 ### **Contact Information**
 - **Email:** investors@kisanai.in
 - **Phone:** +91-XXXX-XXXXXX
-- **Demo:** https://t.me/KisanAIBot
+- **Demo:** https://t.me/Kishan_aibot
 - **Website:** https://kisanai.vercel.app
 
 ---

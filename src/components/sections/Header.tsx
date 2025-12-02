@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
           <div id="google_translate_element_mobile" className="md:hidden translate-element-mobile"></div>
 
           <Button
-            href="https://t.me/KisanAIBot"
+            href="https://t.me/Kishan_aibot"
             variant="primary"
             size="sm"
             className="px-4 py-2 text-sm font-medium"

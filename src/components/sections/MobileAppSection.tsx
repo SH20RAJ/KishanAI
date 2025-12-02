@@ -38,7 +38,7 @@ export const MobileAppSection: React.FC = () => {
                 <Smartphone className="w-5 h-5" />
                 Try App Demo
               </Button>
-              <Button href="https://t.me/KisanAIBot" variant="outline" size="lg" className="flex items-center gap-2">
+              <Button href="https://t.me/Kishan_aibot" variant="outline" size="lg" className="flex items-center gap-2">
                 Use on Telegram <ArrowRight className="w-4 h-4" />
               </Button>
             </div>

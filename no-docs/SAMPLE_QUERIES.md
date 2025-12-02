@@ -513,5 +513,5 @@
 *This comprehensive Q&A database represents the real-world scenarios and information needs of Indian farmers. KisanAI uses this knowledge base to provide accurate, contextual, and actionable responses to farmer queries.*
 
 **📞 For more information**: contact@kisanai.in  
-**🌐 Try KisanAI**: https://t.me/KisanAIBot  
+**🌐 Try KisanAI**: https://t.me/Kishan_aibot  
 **🏆 Built for YUKTI AICTE Hackathon 2025**

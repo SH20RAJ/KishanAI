@@ -330,7 +330,7 @@ KisanAI provides a comprehensive AI-powered platform that offers:
 
 ### **Telegram Bot**
 - **Username**: @KisanAIBot
-- **Link**: https://t.me/KisanAIBot
+- **Link**: https://t.me/Kishan_aibot
 
 ---
 
