@@ -26,18 +26,32 @@ export default function CropDoctorPage() {
         }
     };
 
-    const analyzeImage = () => {
+    const analyzeImage = async () => {
+        if (!image) return;
+
         setAnalyzing(true);
-        // Simulate API call
-        setTimeout(() => {
-            setAnalyzing(false);
-            setResult({
-                disease: 'Leaf Rust',
-                confidence: '92%',
-                treatment: 'Apply fungicide containing propiconazole. Ensure proper spacing between plants for air circulation.',
-                severity: 'Moderate'
+        try {
+            const response = await fetch('/api/analyze-crop', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ image }),
             });
-        }, 2000);
+
+            if (!response.ok) {
+                throw new Error('Analysis failed');
+            }
+
+            const data = await response.json();
+            setResult(data);
+        } catch (error) {
+            console.error('Error analyzing image:', error);
+            // Optional: Set an error state to show to the user
+            alert('Failed to analyze image. Please try again.');
+        } finally {
+            setAnalyzing(false);
+        }
     };
 
     const reset = () => {
