@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { StackProvider, StackTheme } from "@stackframe/stack";
+import { stackClientApp } from "../stack/client";
 import { Manrope } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -50,7 +52,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${manrope.variable} antialiased`}
-      >
+      ><StackProvider app={stackClientApp}><StackTheme>
         {children}
 
         {/* Google Translate Scripts */}
@@ -80,7 +82,7 @@ export default function RootLayout({
             }
           `}
         </Script>
-      </body>
+      </StackTheme></StackProvider></body>
     </html>
   );
 }
