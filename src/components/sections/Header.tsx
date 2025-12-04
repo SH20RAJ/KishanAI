@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/Button';
+import { AuthButton } from '../auth/AuthButton';
 
 export const Header: React.FC = () => {
   return (
@@ -36,6 +37,9 @@ export const Header: React.FC = () => {
         <div className="flex items-center gap-3">
           {/* Mobile Language Selector */}
           <div id="google_translate_element_mobile" className="md:hidden translate-element-mobile"></div>
+
+          {/* Auth Button */}
+          <AuthButton />
 
           <Button
             href="https://t.me/Kishan_aibot"
