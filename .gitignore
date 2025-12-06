@@ -47,3 +47,5 @@ worker.js
 test_bot.js
 TELEGRAM_BOT_README.md
 deploy_bot.sh
+public/workbox-*
+public/swe-worker-*.js

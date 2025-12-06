@@ -317,7 +317,7 @@ KisanAI provides a comprehensive AI-powered platform that offers:
 ## 📞 **Contact Information**
 
 ### **Company Details**
-- **Email**: contact@kisanai.in
+- **Email**: kisanai@strivio.world
 - **Phone**: +91-XXXXX-XXXXX
 - **Address**: [To be determined]
 - **Website**: https://kisanai.in

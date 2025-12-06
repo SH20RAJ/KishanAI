@@ -206,16 +206,15 @@ Comprehensive documentation is available in the `/docs` folder:
 ## 📞 **Contact & Support**
 
 ### **Team Contact**
-- **📧 General**: contact@kisanai.in
+- **📧 General**: kisanai@strivio.world
 - **🤝 Partnerships**: partnerships@kisanai.in
 - **💼 Business**: business@kisanai.in
 - **🔧 Technical**: tech@kisanai.in
 
 ### **Social Media**
 - **📱 Telegram**: [@KisanAIBot](https://t.me/Kishan_aibot)
-- **🐦 Twitter**: [@KisanAI_India](https://twitter.com/KisanAI_India)
-- **💼 LinkedIn**: [/company/kisanai](https://linkedin.com/company/kisanai)
-- **📘 Facebook**: [/KisanAIIndia](https://facebook.com/KisanAIIndia)
+- **🐦 Twitter**: [@sh20raj](https://twitter.com/sh20raj)
+- **💼 LinkedIn**: [/sh20raj](https://www.linkedin.com/in/sh20raj)
 
 ---
 

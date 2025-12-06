@@ -960,7 +960,7 @@ npm install @google-cloud/speech @google-cloud/text-to-speech
 
 #### **For General Discussion**
 - 💬 **GitHub Discussions**: https://github.com/kisanai/kisanai/discussions
-- 🐦 **Twitter**: [@KisanAI_India](https://twitter.com/KisanAI_India)
+- 🐦 **Twitter**: [@KisanAI_India](https://twitter.com/sh20raj)
 - 📧 **Email**: community@kisanai.com
 
 #### **For Technical Help**

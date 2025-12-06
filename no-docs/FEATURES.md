@@ -430,7 +430,7 @@ Empowering 100+ million Indian farmers with **instant crop disease detection**, 
 5. Get instant AI-powered solutions!
 
 ### 👨‍💼 **For Stakeholders:**
-- **Email**: contact@kisanai.in
+- **Email**: kisanai@strivio.world
 - **Demo Request**: Available 24/7
 - **Partnership Inquiries**: partnerships@kisanai.in
 - **Investment Opportunities**: invest@kisanai.in

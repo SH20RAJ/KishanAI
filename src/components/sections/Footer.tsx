@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Wheat, Twitter, Linkedin, Youtube, Mail, Phone, Globe } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -55,7 +56,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                contact@kisanai.in
+                kisanai@strivio.world
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
@@ -74,9 +75,9 @@ export const Footer: React.FC = () => {
             &copy; 2025 KisanAI. Built for Indian Farmers. YUKTI AICTE Hackathon 2025.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</a>
+            <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</Link>
+            <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</Link>
+            <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</Link>
           </div>
         </div>
       </div>
